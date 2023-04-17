@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        /*
+        *   运算符也叫操作符
+        *       通过运算符可以对一个或多个值进行运算
+        *       比如：typeof就是运算符，可以来获得一个值的类型
+        *           它可以将该值的类型以字符串的形式返回
+        *           number string boolean undefined object
+        *
+        *   算数运算符--不会对原变量产生影响
+        *       当对非Number类型的值进行运算时，会将这些值转换为Number再进行运算
+        *           任何值和NaN进行运算，都是NaN
+        *   + 可以对两个值进行加法运算，并将结果进行返回.
+        *       如果对两个字符串进行加法运算，则会进行拼串操作。
+        *       任何的值和字符串做加法运算，都会先转换字符串，再进行拼串
+        *   - 可以对两个值进行减法运算，并返回
+        *   * 可以对两个值进行乘法运算
+        *   / 除法运算
+        *   % 取模运算（取余数）
+        *
+         */
+        var a = 123;
+        //typeof a运算符只能声明全局变量，但是函数可以声明局部变量
+        var result = typeof a;
+            result = 123 + 234;//357
+            result = true + 1;//1+1=2
+            result = true + false;//1+0=1
+            result = 1 + null;//1+0=1
+            result = 1 + NaN;//1+NaN=NaN
+            result = "123" + "123";//对两个字符串进行加法运算，则会进行拼串操作。
+            result = "你好" + "大帅哥";//进行拼串
+        console.log(typeof result);
+        console.log(result);
+            var str = "锄禾日当午，"+
+                      "汗滴禾下土，"+
+                      "谁之盘中餐，"+
+                      "粒粒皆辛苦。";//加号可以换行。
+            console.log(str);
+        result = 123 + "1";//任何值+字符串。都转换成“字符串+字符串”进行拼串
+        console.log(result);
+        var c = 123;
+        c = c + "";//任意数据类型加空串变换为字符串String数据类型。隐式转换，由浏览器自动完成，实际上它也是调用String
+        console.log(typeof c);
+        console.log(c);
+        console.log("c ="+c);
+        result = 1 + 2 + "3";//33，先进行number相加，再进行拼串
+        console.log("result = "+result);
+        console.log(typeof result);
+        result = 1 + "2" + 3;//123
+        console.log("result = "+result);
+        console.log(typeof result);
+        result = "1" + 2 + 3;//123,先进行拼串，再进行拼串
+        console.log("result = "+result);
+        console.log(typeof result);
+        result = 100 - "123";
+        console.log("result = "+result);
+        console.log(typeof result);
+        result = 2 * undefined;//任何数与NaN运算都为NaN
+        console.log("result = "+result);
+        console.log(typeof result);
+        result = 1 * null;
+        console.log("result = "+result);
+        console.log(typeof result);
+        result = 1 / 3;
+        console.log("result = "+result);
+        console.log(typeof result);
+        /*
+        *   任何值做- * /运算时都会转换成Number
+        *       利用特点进行隐式的类型转换
+        *       可以通过为一个值 -0 *1 /1来将其转换成Number
+        *       原理和Number()函数一样，但使用起来更简单
+         */
+        result = 9 % 3;//余0
+        console.log("result = "+result);
+        console.log(typeof result);
+        result = 9 % 4;//余1
+        console.log("result = "+result);
+        console.log(typeof result);
+
+
+
+
+        /*
+        *   一元运算符，只需要一个操作数
+        *   +  正号
+        *       正号不会对数字产生任何影响
+        *   -  负号
+        *       负号可以对数字进行负号的取反
+        *   对于非Number类型的值，它会先转换成Number再运算。可以对其他的数据类型使用+，来将其转换成Number。原理和Number()函数一样
+        *   可以对其他数据类型使用+来转换成number
+         */
+        var a = 123;
+        a = +a;
+        console.log("a = "+a);//得123，不会对值产生任何影响
+        console.log(typeof a);
+        console.log("a = "-a);//得-123，会对值产生取反影响
+        console.log(typeof a);
+        a = true;
+        a = -a;//首先a转换成number，然后取反
+
+        var result = 1 + '2' + 3;
+        console.log("result = " +result);//等于6.
+
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

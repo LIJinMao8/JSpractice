@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        /*
+        *自增++
+        *   -通过自增可以使变量在自身得基础上加1
+        *   -对于一个变量自增以后，原变量得值会立即自增1
+        *   自增分为两种：a++，和++a。
+        *       无论是a++还是++a，都会立即使原变量得值自增1；
+        *           不同得是a++和++a得值不同
+        *       a++的值等于原变量的值（自增以前）
+        *       ++a的值等于原变量自增后的值（自增后）
+        *
+         */
+
+        var a = 1;//a是一个变量
+        a = a+1;
+        console.log("a="+a);
+        a++;//每调一次加1，a++是一个表达式
+        console.log("a="+a);
+        ++a;//
+        console.log(a++);//值为1，自增以前
+        console.log(++a);//值为2，自增以后
+
+        var c = 10;
+        c++;//第一次c++是在10的基础上自增
+        console.log(c++);//输出为11，因为上一个表达式已经加过了，是在11的基础上自增
+
+        var d = 20;
+        //console.log(++d);//输出为21，++d为新值已运行
+        //console.log(++d);//输出为22
+
+        //var result = d++ + ++d +d;//20 + 22 + 22
+        //console.log("result ="+result);//得64
+
+        d = d++;//d++等于原值
+        console.log("d ="+d);//得20
+
+
+        /*
+        *自减
+        *       通过变量在自身得基础上减1
+        *       自减分为两种：前--（--a）和后--（a--）
+        *       无论是a--还是--a，都会立即使原变量得值自减1
+        *       不同得是a--和--a得值不同
+        *           a--是变量原值，--a是变量新值
+        *
+        *
+        *
+         */
+
+        var num = 10;
+        num--;
+        console.log("num ="+num);
+
+        q = "练习：";
+        console.log(q);
+
+        var n1=10,n2=20;
+        var n = n1++;
+        console.log('n='+n);//10
+        console.log('n1='+n1);//11
+        n = ++n1;//上一个表达式，已经将n1变为11了。
+        console.log('n='+n);//12
+        console.log('n1='+n1);//12
+        n = n2--;
+        console.log('n='+n);//20
+        console.log('n2='+n2);//19
+        n = --n2;//上一个表达式，已经将n2变为19
+        console.log('n='+n);//18
+        console.log('n2='+n2);//18
+
+
+
+
+
+
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

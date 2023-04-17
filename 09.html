@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        /*
+        *   JS中为我们提供了三种逻辑运算符
+        *   &&与
+        *       -&&可以对符号两侧的值进行与运算并返回结果
+        *       -运算规则：只要两个值中有一个值为false就返回false，只有两个值都为true才会返回true
+        *       -JS中的“与”属于短路的与，如果第一个值为false，则不会看后面的
+        *
+        *   ||或
+        *       -||或运算可以对符号两侧的值进行或运算并返回结果
+        *       -两个值只要有一个true就返回true，全false才返回false
+        *       -JS中的“或”属于短路的或，如果第一个值为true，则不会看后面的
+        *
+        *   ！非
+        *       -！可以用来对一个值进行非运算
+        *       -非运算就是对一个布尔值进行取反，true变false，false变true
+        *       -如果进行两次取反，不会变化
+        *       -如果对非布尔值进行运算，则将值变为布尔值，再取反，所有可以利用该特点来将其他的数据类型转换成布尔值。可以为任意数据类型取两次反，来将其转换成布尔值，原理和Boolean（）一致
+        *
+         */
+
+        //与运算
+        var result = true && true;
+        console.log("result ="+result);//如果两个都是true则返回true
+        var result = true && false;
+        console.log("result ="+result);//只要有一个false就返回false
+
+        true && alert("我出不出来");//能看到
+        false && alert("我出不出来");//看到了false，则不返回
+
+        //或运算
+        result = true || false;
+        console.log("result ="+result);//只要有true，就为true。全false才为false
+
+        false || alert("123");//第一个值为false则检查第二个值。
+        true || alert("123");//第一个值为true，则不检查第二个值
+
+        //非运算
+        var a = true;
+        a=!a;//对a进行非运算
+        console.log("a="+a);//答案为false
+        var b = 10;//number数据类型
+        b=!b;
+        console.log("b="+b);//答案为false
+        console.log(typeof b);//boolean布尔值
+
+        /*
+        *&& || 非布尔值的情况
+        *       -对于非布尔值进行与或运算时，先将其转换成布尔值，再进行运算,并且返回原值
+        *       -&&“与”运算：
+        *           -如果第一个值为true。则返回第二个值
+        *           -如果第一个值为false。则返回第一个值
+        *       -||“或”运算：
+        *           -如果第一个值为true。则直接返回第一个值
+        *           -如果第一个值为false。则直接第二个值
+        *
+         */
+        var result = 1 && 2;//与运算，如果两个值都为true，则返回后边的
+        console.log("result ="+result);
+        result = 0 && 2;//与运算，如果有false，则返回false，0
+        console.log("result ="+result);
+        result = NaN && 0;//两个都是false，则返回前面的
+        console.log("result ="+result);
+
+
+
+        /*
+        *赋值运算符
+        *   =
+        *       可以将符号右侧的值赋值给符号左侧的变量
+        *   +=
+        *       a+=5等价于a=a+5，+=是一个运算符
+        *   -=
+        *   *=
+        *   /=
+        *   %=模等于，模为取余数
+        *
+         */
+        var a = 123;
+        a += 5;//a = a + 5等价于a+=5
+        console.log("a="+a);
+
+
+        /*
+        *关系运算符
+        *   通过关系运算符可以比较两个值之间的大小关系
+        *   如果关系成立会返回true，如果不成立返回false
+        *
+        * >大于号
+        *   -如果关系成立，返回true，不成立返回false
+        * >= 大于等于
+        *   -判断左侧是否大于或等于右侧值
+        * <小于号
+        * <=小于等于
+        *
+        * 非数值的情况
+        *   -对于非数值进行比较，会将字符串转换成数字再进行运算
+        *   -如果符号两侧的值都是字符串，不会将其转换为数字进行比较，而会分别比较字符串中字符的Unicode编码
+         */
+        var poi = 5>10;
+        console.log("poi ="+poi);//false
+        console.log(1>true);//false
+        console.log(1>=true);//true
+        console.log(1>"0");//true
+        console.log(10>null);//true
+        console.log(10>"hello");//false,转换成NaN。任何值和NaN做任何比较都是false
+        console.log("5">"1");//true
+        console.log("10">"15");//true
+        console.log("a"<"b");//true
+        console.log("a">"b");//false
+        console.log("abc"<"b");//true,比较字符编码时，是一位一位进行比较。如果两位相同，则比较下一位，所以借用它来对英文进行排序。
+        console.log("我"<"你");//比较中文没有意义
+        console.log("11"<"5");//true，比较第一位已经出结果，不比较后位。如果比较两个字符串型的数字，可能得到不可预期的结果
+        //注意在比较两个字符串型的数字时，一定一定要转型
+
+        /*
+        *   在字符串中使用转译字符输入Unicode编码
+        *   在JS中使用方法:\u四位编码
+         */
+
+        
+    </script>
+</head>
+<body>
+
+    <!-- 在网页中使用Unicode编码
+        &#编码；这里的编码需要的是10进制
+    -->
+    <h1 style="font-size: 200px;">&#9922;</h1>
+
+
+</body>
+</html>

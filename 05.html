@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数据类型</title>
+
+    <script type="text/javascript">
+        /*
+        *数据类型指的就是字面量的类型
+        * 在js中一共有6种数据类型
+            * String 字符串
+            * Number 数值
+            * Boolean 布尔值
+            * Null 空值
+            * Undefined 未定义
+            * Object 对象
+        *其中String Number Boolean Null Undefined属于基本数据类型
+        * Object属于引用数据类型
+         */
+
+
+
+
+        /*
+        *string字符串
+        * -在js中字符串需要用引号引起来
+        * —使用双引号或单引号都可以，但是不要混着用
+         */
+        var str = "hello";//str为字符串，hello为变量
+        console.log(str);
+        str = "我说：'今天天气真不错'";
+        console.log(str);
+        str = "我说：\"今天天气真不错\"";//在字符串中可以使用斜杠\作为转义字符，当表示一些特殊符号时可以使用\进行转义
+        console.log(str);
+        //   \n表示换行
+        //   \t表示制表符tab键
+        //   \\表示\
+        str = "\\";
+        console.log(str);
+        //alert("str");//alert为警告弹窗。输出字面量 字符串str。加双引号表示字符串
+        //alert(str);//输出变量str。不加双引号表示变量
+
+        var str2 = "hello";//var只需要在首次声明变量的时候写
+        str2 = "nohello";//var已经声明，不需要再次声明。视为最后定义有效
+
+        //alert("hello,你好");
+        //console.log("不用出来");//顺序执行代码
+
+
+
+
+
+
+
+        /*
+        *Number数值类型
+        * 在JS中所有的数值都是Number类型，
+        * 包括整数和浮点数（小数）
+         */
+        var a = 123.123;//数字123
+        var b = "123";//字符串123
+        //可以使用一个运算符typeof来检查一个变量的类型
+        //语法：typeof 变量
+        console.log(typeof a);//检查数值时，会返回number
+        console.log(typeof b);//检查字符串时，会返回string
+        console.log(a);
+        console.log(b);
+        console.log(Number.MAX_VALUE);//Number.MAX_VALUE在js中表示数字的最大值
+        var lt = Number.MAX_VALUE;
+        console.log(lt*lt);//超过Number.MAX_VALUE的值则返回 Infinity 表示正无穷.Infinity属于Number
+        lt = Number.MIN_VALUE;//大于0的最小正数值5e-324
+        console.log(lt);
+        console.log(lt*lt);
+        a = "abc" * "bcd";//返回NaN。NaN是一个特殊的数字，表示Not A Number
+        var c = 0.1+0.2;
+        console.log(c);//如果使用js进行浮点（小数）运算，可能得到不精确的结果。所以千万不要使用js进行精确度要求比较高的运算
+
+
+
+
+
+
+
+        /*
+        *Boolean布尔值
+        *   布尔值只有两个。主要用于做逻辑判断
+        *   true真和false假
+        *
+        *
+         */
+        var bool = true;
+        console.log(typeof bool);//使用typeof检查布尔值时返回boolean
+        console.log(bool);
+
+
+
+
+
+        /*
+        *Null类型的值只有一个，就是null
+        *Undefined类型的值也只有一个，就是undefined
+        *
+        *
+         */
+        var d = null;
+        console.log(d);
+        console.log(typeof d);//使用typeof检查一个null值时，会返回object。
+        var e;
+        console.log(e);
+        console.log(typeof e);
+
+
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
