@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        /*
+        *   我们的程序是由一个一个语句构成
+        *   语句是按照自上向下的顺序一条一条执行
+        *   在JS中可以使用{}来为语句进行分组
+        *       同一个{}中的语句为一组语句
+        *       要么都执行，要么都不执行
+        *       一个{}中的语句也被称为代码块
+        *       {}代码块后不用编写分号；
+        *       JS中代码块只有分组作用，没有其他作用
+         */
+        {
+            alert("hello");
+            console.log("hello");
+            document.write("hello");
+            var daimakuai =10;
+        }
+        console.log("代码块内的内容="+daimakuai);//可以在代码块外调用
+
+
+        /*
+        *   流程控制语句
+        *       JS中的程序是从上至下一行一行执行
+        *       通过流程控制语句，可以控制程序执行流程，使程序可以根据一定的条件来选择执行
+        *   语句的分类：
+        *       1、条件判断语句
+        *       2、条件分支语句
+        *       3、循环语句
+         */
+        /*
+        *   条件判断语句：
+        *       使用条件判断语句，可以在执行某个语句之前进行判断
+        *       如果条件成立才会执行语句，条件不成立则不执行
+        *           if语句
+        *           语法一：
+        *               if（条件表达式）{
+        *                   语句1
+        *               }
+        *                   if语句在执行时，会先对条件表达式进行求职判断
+        *                   如果值为true，则会执行if后的语句
+        *                   如果表达式的值为false，则不会执行if后的语句
+        *                   if语句只能控制紧随其后的那个语句，如果需要多控制，加代码块{}进行控制
+        *                   if语句后的代码块不是必须的，但是在开发中尽量写上代码块，即使只有一条语句
+        *           语法二：if...else...语句
+        *               if(条件表达式){
+        *                   语句1
+        *               }else{
+        *                   语句2
+        *               }
+        *                   当该语句执行时，会先对if后的条件表达式进行求值判断，
+        *                   如果该值为true，则执行fi后的语句，
+        *                   如果该值为false，则执行else后的语句
+        *           语法三：if...else if...else语句
+        *               if(条件表达式){
+        *               语句1
+        *               }else if(条件表达式){
+        *                   语句2
+        *               }else if(条件表达式){
+        *                   语句3
+        *               }else{
+        *                   语句4
+        *               }
+        *                   该语句执行时，会从上到下依次对条件表达式进行求值
+        *                   如果值为true，则会执行当前语句
+        *                   如果值为false，则会继续向下判断
+        *                   如果所有的条件都不满足，则执行最后的else后的语句块。也可以不写，就不执行
+        *                   该语句中，只会有一个代码块被执行，一旦代码块执行，则直接结束语句
+         */
+        //语法一：
+        var a=15;
+        if (a>10) {
+            alert("成立，就出来了");//a>10就执行alert语句。
+            alert("依旧出来");//没法控制多行
+        }
+        if (a > 10 && a <= 20){
+            alert("a大于10，且a小于20");
+        }
+        //语法二：
+        var age = 60;
+        if (age>=60){
+            alert("你已经退休了");
+        }else{
+            alert("你没有退休");
+        }
+        //语法3
+        age = 10;
+        if (age>100){
+            alert("活的太久了");
+        }else if (age>80){
+            alert("活的够久了");
+        }else if (age>18){
+            alert("你已经成年了");
+        }else{
+            alert("你还只是个孩子");
+        }
+        if (age>17){
+            alert("成年了")
+        }else if (age>30){
+            alert("中年人了")
+        }else{
+            alert("该退休了")
+        }//顺序错了后，后面的就为死代码，不会执行后面的语句。更改办法如下
+        if (age>17 && age <= 30){
+            alert("成年了")
+        }else if (age>30){
+            alert("中年人了")
+        }else{
+            alert("该退休了")
+        }
+
+        var hahaha = 10;
+        if (hahaha === 10){//一定要是两个等号，一个等号代表赋值。会一直输出
+            alert("哈哈哈")
+        }
+
+
+        /*
+        *   条件分支语句，也叫switch语句
+        *       语法
+        *           switch(条件表达式){
+        *               case表达式:
+        *                   语句...
+        *                   break;
+        *               case表达式:
+        *                   语句...
+        *                   break;
+        *               default：
+        *                   语句...
+        *                   break;
+        *           }
+        *       执行流程：
+        *           switch...case...语句
+        *           在执行时会依次将case后的表达式和switch后的条件表达式的值进行全等比较
+        *               如果比较结果为true，则从当前case处开始执行代码，后面的代码都要执行
+        *                   在case后面使用break;可以来退出switch语句。可以确保只会执行当前case语句，不会执行之后的case语句
+        *               如果比较结果为false，则会继续向下比较
+        *               如果所有比较结果都为false，则只执行default后的语句
+        *       switch语句和if语句的功能实际上有重复，使用switch可以实现if的功能，
+        *           使用if可以实现switch语句的功能，视习惯选择
+         */
+        var shuzi = 1;
+        switch (shuzi){
+            case 1:
+            console.log("一");
+            break;
+            case 2:
+            console.log("二");
+            break;
+           default://
+            console.log("非数字");
+            break;
+        }
+
+
+        /*
+        *   循环语句：
+        *       通过循环语句可以反复的执行一段代码多次
+        *
+        *   while循环
+        *       语法：
+        *           while(条件表达式){
+        *               语句...
+        *           }
+        *   while语句在执行时，先对条件表达式进行求值判断
+        *       如果值为true，则执行循环体，循环体执行完毕以后，继续对表达式进行判断.如果为true，则继续执行
+        *       如果为false，则终止循环
+        *
+        *   do...while循环
+        *       语法：
+        *           do{
+        *               语句...
+        *           }while(条件表达式);
+        *       执行流程：
+        *           do...while语句在执行时，会先执行循环体，
+        *               循环体执行完毕以后，在对while后的表达式进行判断
+        *               如果为true，则继续执行循环体，执行完毕继续判断以此类推
+        *               如果为false，则种植循环
+        *
+        *   do...while和while的区别在于在于先执行后判断，while是先判断后执行。do...while可以保证循环体至少执行一次。而while不能
+         */
+        var n=1;
+        while (true){//将条件表达式写死为true的循环，叫死循环。该循环不会停止，除非浏览器关闭。
+            alert(n++);
+            if(n == 10){
+                break;
+            }
+        }
+        //创建循环，需要三步。
+        //1.创建初始化变量
+        var xunhuan = 0;
+        //2.在循环中设置一个条件表达式
+        while (xunhuan<=5200){
+            //3.定义一个更新表达式，每次更新初始化变量
+           document.write(xunhuan++ +"<br/>");
+        }
+
+
+        /*
+        *   for语句，也是一个循环语句，也称为for循环
+        *       在for循环中，为我们提供了专门的位置用来放三个表达式：
+        *           1.初始化表达式
+        *           2.条件表达式
+        *           3.更新表达式
+        *       for循环语句：
+        *           for（①初始化表达式；②条件表达式；④更新表达式）{
+        *               ③语句...
+        *           }
+        *       for循环执行流程：
+        *           1.执行初始化表达式，初始化变量（初始化表达式只执行一次）
+        *           2.执行条件表达式，判断是否执行循环。如果为true则执行块中的语句，false则终止循环
+        *           3.执行更新表达式，执行完毕后继续重复条件表达式
+        *
+        *       for循环中的三个部分都可以省略，也可以写在外部。都不写表达式就是死循环。
+         */
+
+        /*!//创建一个执行10次的while循环
+        //初始化表达式
+        var u = 0;
+        //创建一个循环，定义条件表达式
+        while(u < 10){
+            //设置更新表达式
+            alert(u++);
+        }*/
+        for (var u = 0; u <= 10; u++){
+            alert(u);
+        }//比while循环结构更加清晰
+
+        /*
+        *   嵌套for循环
+        *   通过程序，在页面中输入如下的图型：
+        *   *
+        *   **
+        *   ***
+        *
+         */
+        //向body中输出一个内容,正向增加
+        for (var i=0;i<11;i++){//这个最外部的for循环执行几次，图形高度就是多少。可以用来控制图形的高度
+            for (var u=0;u<i+1;u++){//内层循环可以决定图像的宽度，执行几次宽度就为多少
+                document.write("*&nbsp;&nbsp;&nbsp;");//&nbsp;空格符
+            }
+            document.write("<br/>");
+        }
+        //向body中输入，倒叙增加
+        for (var i=0;i<10;i++){//这个最外部的for循环执行几次，图形高度就是多少。可以用来控制图形的高度
+            for (var u=0;u<10-i;u++){//内层循环可以决定图像的宽度，执行几次宽度就为多少
+                 document.write("*&nbsp;&nbsp;&nbsp;");//&nbsp;空格符
+            }
+            document.write("<br/>");
+        }
+        //99乘法表
+        for (var n=1;n<100;n++){
+            for (var k=1;k<n+1;k++){
+                document.write("<span>"+k+"*"+n+"="+n*k+"</span>");
+            }
+            document.write("<br/>");
+        }
+        //打印1-100之间所有的质数
+        for (var i=2;i<=1000;i++){
+            var flag=true;
+            for (var j=2;j<i;j++){
+                if (i%j==0){
+                    flag=false;
+                    }
+                }
+            if (flag){
+                document.write(i+"<br/>");
+            }
+        }
+
+        /*
+        *   break关键词可以用来退出switch或循环语句
+        *   不能再if语句中使用break和continue
+        *   break关键字，会立即终止离他最近的那个循环
+        *   可以为循环语句撞见一个laberl标签，来标识当前的循环
+        *   label:循环语句
+        *   使用break语句后，可以再break后跟一个label标签，这样break将会结束指定的循环。而不是最近的
+         */
+        for (var i=0;i<10;i++){
+            console.log("外"+i);
+            for (var j=0;j<10;j++){
+                break;//只终止离他最近的循环
+                console.log("内"+j);
+            }
+        }
+        for (var a=0;a<10;a++){
+            if (a==2){
+                continue;//continue关键字可以用来跳过当次循环，同样continue只会默认最近的循环语句
+            }
+            console.log(a);
+        }
+        //测试如下的程序的性能。在程序执行前，开启计时器。
+        //console.time(“计时器”)可以用来开启一个计时器。他需要一个字符串作为参数，这个字符串将会作为计时器的标识
+        console.time("计时器");
+        for (var i=2;i<=100000;i++) {
+            var flag = true;
+            for (var j = 2; j <= Math.sqrt(i); j++) {//修改j<=后，还可以减少检查值的范围，增快代码运行速度
+                if (i % j == 0) {
+                    flag = false;
+                    break;//break终止不必要的循环，可以增快代码运行速度
+                }
+            }
+            if (flag) {
+                document.write(i + "<br/>");
+            }
+        }
+        console.timeEnd("计时器");//console.timeEnd("名字")终止计时器
+        Math.sqrt(16);//可以通过Math.sqrt（）进行一个数的开方
+
+
+
+
+
+
+    </script>
+    <style type="text/css">
+        body{
+            width: 10000px;
+        }
+        span{
+            display: inline-block;
+            width: 100px;
+        }
+
+    </style>
+</head>
+<body>
+
+</body>
+</html>
