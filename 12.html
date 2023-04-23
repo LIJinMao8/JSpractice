@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <script type="text/javascript">
+    var a = 1 + 5 + 4 + "9" + 1 +3;//运算符，先运算Number类型，在转换成String类型，进行级联
+    console.log(a);
+    console.log(typeof a);//typeof展示当前字符类型
+
+    //全局作用域let和const
+    let i =10000;//let不会被循环所影响，循环外调用依旧是let赋值
+    for (let i=0;i<3;i++){
+        console.log(i)//循环内的变量不会被let影响，值按照循环条件语句进行
+    }
+    {
+        let i = 2;
+        console.log(i,typeof i);
+    }
+    console.log(i);
+
+    shiyan = "哈哈";//var在
+    console.log(shiyan);
+    let shide;
+    console.log(typeof shide);
+    shide ="哈哈哈";
+    console.log(shide,typeof shide);
+    shide = 123;
+    console.log(shide,typeof shide);
+    shide = true;
+    console.log(shide,typeof shide);
+
+    const myconst = "123";//const无法重新赋值
+    console.log(myconst,typeof myconst);
+
+    var myconst2 = 123;
+    {
+        const myconst2 = "是的";
+        console.log(myconst2,typeof myconst2);//语句块内的const无法对外做影响，只能对块内的变量做声明
+    }
+    console.log(myconst2,typeof myconst2);//const无法对块外的数据进行声明
+
+    const myconst4 = {const1:123,const2:true,const3:"第一"};//const必须在声明变量时进行赋值，对象内可以为不同的数据类型
+    console.log(myconst4,typeof myconst4);
+    myconst4.const2=false;
+    console.log(myconst4.const2,typeof myconst4.const2);
+    //myconst4 = {const1:321,const2:true,const3:"第二"};//无法对const声明的对象进行赋值
+
+    const myconst5 = ["一",123,true];
+    console.log(myconst5,typeof myconst5);
+    myconst5.push(null);//可以增加数组内的元素
+    console.log(myconst5,typeof myconst5);
+    myconst5[1] = 321;//可以更改数组内的单个元素
+    console.log(myconst5[1],typeof myconst5[1]);//可以对const声明的数组进行声明。
+
+    var var1 = 123;
+    //const var1 = 123;//在同一作用域或块中，不允许将已有的 var 或 let 变量重新声明或重新赋值给 const
+    {
+        let var1 =321;
+        //const var1 =321;//在同一作用域或块中，不允许将已有的 var 或 let 变量重新声明或重新赋值给 const
+        console.log(var1);
+    }
+    console.log(var1);
+
+    const const1 = 123;
+    //const const1 = 321;//在同一作用域或块中，为已有的 const 变量重新声明声明或赋值是不允许的
+    {
+        const const1 = 312;
+        console.log("块内的const1="+const1,typeof const1);
+    }//在另外的作用域或块中重新声明 const 是允许的：
+    console.log("块外const1="+const1,typeof const1);
+
+    var2 = 123;
+    console.log("var2="+var2,typeof var2);//可以先使用变量再用var进行声明
+    var var2;
+    console.log("var2="+var2,typeof var2);
+    /*var3 = "123";
+    console.log(var3,typeof var3);//let无法先使用变量，后声明
+    let var3;*/
+    /*var3 = 123;
+    console.log("var3="+var3);//const无法先使用变量，后声明
+    const var3;*/
+
+    console.log("除法9/4="+9/4);//除法不进行取整
+    console.log("除法取整9/4="+parseInt(9/4),typeof parseInt(9/4));
+    console.log("取余数9/4="+9%4);
+    var c = 9;
+    c += 4;//+=为原值加+=右侧值，返回相加后的数值-=  /=  *=  %=同理
+    console.log("增加一个值(9+=4)="+c);
+    var b = c * "五";
+    console.log("9+五="+b);//等于NaN
+    var d = c ** 3;
+    console.log("13的3次幂="+d);//幂运算为**
+    d %= 15;
+    console.log("2197/15的余数赋值给d="+d);
+    d **= 2;
+    console.log("7的二次幂赋值给d="+d);
+    d = 2e3;
+    console.log("2e3="+d);
+    d = 2e-3;
+    console.log("2e-3="+d);
+    d = null;
+    console.log("null的数据类型="+typeof d);
+
+    /*
+    *  函数function的用法————关键词定义函数
+    *   function 函数名（参数1，参数2）{条件表达式}
+     */
+    function lianxi(a,b){
+        return a ** b;
+    }
+    console.log(lianxi(2,3));
+
+    //通过弹窗输入摄氏度Celsius degree转换为华氏度Fahrenheit 转变方式为摄氏度÷1.8+32=华氏度
+    //在function中声明的变量为局部变量，不可被外部使用
+    /*var e = +prompt("请输入当前摄氏度");
+    function celsius(e){
+        return e/1.8+32;
+    }
+    console.log(celsius());//没有（）就会返回函数定义*/
+
+    /*function displayDate(){
+        document.getElementById("demo").innerHTML = Date();
+    }//在html中进行处理程序*/
+
+    var txt = "文字需\"双引号，\'单引号，\\斜杠,\b退格符，\f换页符，\n新行，\r回车，\t水平制表符，\v垂直制表符";//”“内如需要再加”需要进行转译    \'为单引号‘     \"为双引号“   \\为反斜杠\
+    console.log(txt+"        字符串有 "+txt.length+" 个字符，包含符号");//变量名.length可以查询字符串长度
+
+    var string1 = "abc";
+    var string2 = new String("abc");
+    console.log("未使用new则数据类型为 "+typeof string1+"\n使用new后将数据类型转换为 "+typeof string2);
+    console.log("相等运算符为："+(string1==string2));
+    console.log("全等运算符为："+(string1===string2));
+    var string3 = new String("abc");
+    console.log("两个new String相等运算符为："+(string2==string3));//双方定义均为object，不是string，object无法进行比较
+
+    var qwe = "this is a English ，can you speak English ？";
+    console.log(qwe.indexOf("English"));//查询字符串首次出现得位置，空格也为1字符。indexOf为查找首个，lastIndexOf为查找末个
+    console.log(qwe.lastIndexOf("chinese"));//如果没有，则返回-1
+    console.log(qwe.indexOf("English",17));//后接数字，表示从多少位开始查询
+    console.log(qwe.search("English"));//搜索特定值的字符串，并返回匹配的位置：
+    console.log(qwe.slice(10,20));//提取字符串的某个部分并在新字符串中返回被提取的部分
+    console.log(qwe.slice(-20,-10));//从末尾开始计算提取位置
+    console.log(qwe.slice(10));//只有一个数值，则从当前数值位置进行裁剪，输出后面得数值
+    console.log(qwe.slice(-10));//从尾部开始计数，提取倒数10位
+    console.log(qwe.substring(10,20));//无法倒叙提取
+    console.log(qwe.substr(10,9));//第二个参数规定被提取部分的长度
+    console.log(qwe.replace("English","Chinese"));//替换查询到得第一个值，并返回替换后得语句
+    console.log(qwe.replaceAll("English","French"));//替换查询到得所有，并返回修改后得语句
+    console.log(qwe.replace(/english/i,"Korean"));//对大小写不一致，只针对首个
+    console.log(qwe.replace(/english/g,"Japanese"));//__________________为什么不能替换
+    var ewq = "English is the language of Americans.                   ";
+    console.log(qwe.concat(null,ewq));//整合两个或多个字符串
+    console.log(qwe.toLowerCase());//全部转译为小写
+    console.log(qwe.toUpperCase());//全部转译为大写
+    console.log("hello".concat(" ",qwe));//可以直接为字符串做整合
+    console.log(ewq.trim(ewq));//删除字符串两端的空格
+    console.log(qwe.charAt(5));//提取字符串下标的内容,从0开始
+    console.log(qwe.charCodeAt(5));//返回下标字符串的unicode编码。
+    console.log(qwe[5]);
+    qwe[5]="a"//只能用作查询，不能进行修改，只读。并不是数组
+    console.log(qwe[5]);
+    console.log(qwe.includes("English",10));//从第十位开始往后查询，包含值，返回true
+    console.log(qwe.startsWith("English",20));//从第20位开始，是否以English开头，不是，返回false
+    console.log("最后一位"+qwe.endsWith("?"));//是由空格结尾，检查最后得字符是否符合
+    let qwer =
+        `haha
+        heihei
+        yoyo
+        lala`;//加 ` 模板字面量允许多行字符串
+    console.log(qwer);
+    let qweewq = `all ${qwe},${ewq}`;//模板字面量变量替换
+    console.log("模板字面量变量替换："+qweewq);
+    let p = 22.22;
+    let o = 11.11;
+    let u = `pxo:${(p*o).toFixed(5)}`;//()内是，四舍五入到小数点后几位,运算式需要括号
+    console.log("模板字面量:"+u);//模板字面量允许字符串中的表达式,用真实值自动替换表达式称为字符串插值。
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </script>
+</head>
+<body>
+    <!--<button onmouseover="displayDate()">当前北京时间是</button>
+    <p id="demo"></p>-->
+
+</body>
+</html>
