@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <script type="text/javascript">
+    var a = 100/"10";
+    console.log(typeof a,a,isNaN(a));//inNaN判断是否为number，任何数字与NaN运算都将是NaN
+    /*a = 2;
+    while (a != Infinity){//Infinity为最大值，-Infinity为最小值，Infinity为number类型
+        a = a^2;
+    }
+    console.log();*/
+    a =99;
+    console.log(a.toString(8));//toString转换进制类型，平常输入的值默认十进制
+    console.log(("toString="+123+"呀呀呀").toString());//toString是以字符串类型返回值
+    a = 1.543435464;
+    console.log("toExponential四舍五入计算值="+a.toExponential(3));//返回字符串值，它包含已被四舍五入并使用指数计数法的数字。小数点后的参数值
+    console.log("toFixed="+a.toFixed(10))//固定返回指定长度字符串,且会四舍五入
+    console.log("toPrecision="+a.toPrecision());//包含指定长度数字
+    console.log("valueOf"+a.valueOf());//返回number值，且可以运行表达式
+    a = "321";
+    console.log(Number(a),typeof Number(a));//将变量转换为数字,返回数字，由其参数转换而来
+    console.log(parseInt(a),typeof parseInt(a));//将变量转换为数字,解析其参数并返回整数。
+    console.log(parseFloat(a),typeof parseFloat(a));//将变量转换为数字,解析其参数并返回浮点数。
+    console.log(Number("1999-02-28"));
+    console.log(Number.MAX_VALUE);//js中数值的最大值
+    console.log(Number.MIN_VALUE);//最小值
+    console.log(1/0);//溢出时返回 POSITIVE_INFINITY,溢出时返回 NEGATIVE_INFINITY
+
+    //数组
+    var fruits = ["apple","banana","orange","mango","strawberry"];
+    var fruits2 ;
+    var fruits1 = fruits.length;//返回数组的长度
+    for (var i=0;i<fruits1;i++){
+        fruits2 += fruits[i];
+    }
+    console.log(fruits2);
+    fruits.push("watermelon");//添加新元素
+    fruits[fruits.length] = "tomato";
+    console.log(fruits);
+    var fruits3 =[];
+    fruits4 =[];
+    fruits3[0]="apple";
+    fruits3[1]="banana";
+    fruits3[2]="orange";
+    fruits3[3]="mango";
+    console.log("length:"+fruits3.length);
+    console.log(fruits3[2]);
+    console.log(fruits.join("、"));
+    console.log(fruits3.pop());//删除最后一个值
+    fruits3.push("mango");//push向末尾添加
+    console.log("向末尾添加后"+fruits3);
+    console.log(fruits3.push("patato"));//向末尾添加后，方法返回新数组的长度
+    console.log(fruits3.shift());//从第一个开始删除，且全部向前移位1，返回删除值
+    console.log(fruits3.unshift("apple"));//从对象第一个进行添加，返回新数组长度
+    fruits3[fruits3.length] = "kiwi";//从数组后添加一个字符串，并赋值
+    console.log(fruits3);
+    delete fruits3[5];
+    console.log(fruits3);//？？？？？？？？？？？？？？？？？？？？？
+    fruits3.splice(2,0,"oh","ye");//第一个参数（2）定义了应添加新元素的位置（拼接）、第二个参数（0）定义应删除多少元素、其余参数（“oh”，“ye”）定义要添加的新元素。返回删除的数值
+    console.log(fruits3);
+    console.log(fruits4.concat(fruits1,fruits2,fruits3));//方法不会更改现有数组。它总是返回一个新数组
+    console.log(fruits3,fruits3.slice(1,3));//开始参数选取元素，直到结束参数（不包括）为止
+    console.log(fruits3,fruits3.slice(2));//结束参数被省略，slice() 会切出数组的剩余部分。
+    console.log(fruits3,fruits3.toString());//以逗号分隔的字符串返回数组
+    console.log(fruits3.sort());//方法按字母顺序对数组进行排序
+    console.log(fruits3.reverse());//反转数组,降序对数组进行排序
+    var fruits5 = [1,34,6,124,75,33];
+    fruits5.sort(function (b,a){return b-a});//按升序对数组进行排序
+    console.log(fruits5);
+    fruits5.sort(function (a,b){return b-a});//降序对数组进行排序
+    console.log(fruits5);
+    fruits5.sort();//按字母顺序对数组进行排序,按位计算
+    console.log(fruits5);
+    fruits5.sort(function (a,b){return 0.5-Math.random()});//以随机顺序排序数组
+    console.log(fruits5);
+    fruits5.sort(function (a,b){return a-b});//排序后查询数组最高和最低位
+    console.log(fruits5);
+    console.log(fruits5[fruits5.length-1]);//含最高值
+    console.log(fruits5[0]);//含最低值
+    console.log(Math.max(fruits5));
+    var points = [1,234,5,12,43,67,95,149,173,24,72,54];
+    function myArrayMax(arr){
+        var len=arr.length;//排序
+        var max=-Infinity;
+        while (len--){
+            if (arr[len]>max){
+                max=arr[len];
+            }
+        }
+        return max;
+    }
+    console.log(myArrayMax(points));//计算最高值
+    function myArrayMin(arr){
+        var len=arr.length;//排序
+        var min=Infinity;
+        while (len--){
+            if (arr[len]<min){
+                min=arr[len];
+            }
+        }
+        return min;
+    }
+    console.log(myArrayMin(points));//计算最低值
+/*    var cars = [
+        {type: bmw,number: 5},
+        {type: audi,number: 8},
+        {type: porsche,number: 2},
+        {type: vw,number: 9},
+        {type: tesla,number: 3}
+    ];
+    cars1();
+    function mufunction(){
+        cars.sort(function (a,b){
+            var x=a.type.toLowerCase();
+            var y=b.type.toLowerCase();
+            if (x>y){
+                return -1;
+            }
+            if (x<=y){
+                return 1;
+            }
+            return 0;
+        })
+        cars1();
+    }
+    function cars(){
+        document.innerHTML =
+            cars[0].type + " " + cars[0].number + "<br>" +
+            cars[1].type + " " + cars[1].number + "<br>" +
+            cars[2].type + " " + cars[2].number;
+        )//排序对象数组？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
+    }*/
+    var m ="";
+    fruits5.forEach(foreach);//为每个数组元素调用一次函数
+    function foreach(asd){
+        m = m + asd + "\n";
+    }
+    console.log(m);
+    var m1 = fruits5.map(n);//方法通过对每个数组元素执行函数来创建新数组
+    function n(m){
+        return m*2;
+    }
+    console.log(m1);
+    console.log(fruits5);
+    var m2 = fruits5.filter(v);//创建一个包含通过测试的数组元素的新数组
+    function v(n){
+        return n>30;
+    }
+    console.log(m2);
+    var m3 = fruits5.reduce(l,200);//确定数组中所有数字的总和,能够接受一个初始值
+    function l(n,m){
+        return n + m;
+    }
+    console.log(m3);
+    var m4 = fruits5.every(k);//检查  所有   数组值是否通过测试
+    function k(n){
+        return n<40;
+    }
+    console.log(m4);
+    var m5 = fruits5.some(j);//检查某些数组值是否通过了测试
+    function j(n){
+        return n>30;
+    }
+    console.log(m5);
+    var m6 = fruits5.indexOf(33,0);//在数组中搜索元素值并返回其位置,第一个项目的位置是0,可以选择从哪里开始搜索。负值将从结尾开始的给定位置开始，并搜索到结尾
+    console.log(m6);
+    var m7 = fruits5.find(h);//返回通过测试函数的第一个数组元素的值
+    function h(n){
+        return n>30;
+    }
+    console.log(m7);
+    var m8 = fruits5.findIndex(g);//返回通过测试函数的第一个数组元素的索引,从0开始
+    function g(n){
+        return n>30;
+    }
+    console.log(m8);
+    const fruits6 = ["ab","bc","cd","de"];
+    //fruits6 = ["ba","cb","dc","ed"];//用 const 声明的数组不能重新赋值
+    console.log(fruits6);
+    fruits6[0] = "ba";//可以更改常量数组的元素
+    fruits6.push("ef");//可以更改常量数组的元素
+    console.log(fruits6);
+
+
+
+
+
+
+
+
+
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>
