@@ -1,0 +1,1565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+    /*/!*
+    多行js注释
+    多行注释的内容不会被执行，但是可以在源代码中查看
+        养成良好的编写注释的习惯，也可以通过注释来对代码进行一些简单的调试
+    *!/
+
+      //单行注释，只对斜杠后内容有效
+      alert("hello");//警告提示框
+      document.write("hello");//写一个文档，在页面进行输出
+      console.log("hello");//开发者控制台输出一个日志，便于调测
+
+      /!*
+      *1、js中严格区分大小写
+      *2、js中每一条语句以英文分号；结尾--如果不写分号，浏览器会自动添加，但是会消耗一些系统资源，有些时候浏览器会加错分号。所以在开发中分号必须写。
+      *3、js会忽略多个空格和换行，所以可以利用空格和换行对代码进行格式化、美化
+      *!/*/
+
+      /*/!*
+      *字面量，都是一些不可更改的值
+      * 比如：1 2 3 4 5
+      * 字面量都是可以直接使用的，但是我们一般都不会直接使用字面量
+      *
+      * 变量可以用来保存字面量，变量的值可以任意改变。变量更加方便使用。所以在开发中都是通过变量来保存字面量，
+      * 可以通过变量对字面量进行描述
+       *!/
+      //声明变量
+      //在js中使用var关键字来声明变量
+      var a;
+      //为变量赋值
+      a=123;
+      console.log(a);
+      //同时赋值和声明
+      var b=321;
+      console.log(b);
+      var age=80;
+      console.log(age);*/
+
+      /*/!*
+        *标识符
+        * 在js中所有可以由我们自主命名的都可以称为是标识符
+        * 例如：变量名、函数名、属性名都属于标识符
+        * 命名一个标识符时需要遵守如下的规则：
+        *   1、标识符中可以含有字母、数字、_、$
+        *   2、标识符不能以数字开头
+        *   3、标识符不能是ES中的关键字或保留字
+        *   4、标识符一般都采用驼峰命名法。（首字母小写，每个单词的开头字母大写，其余字母小写）
+        *
+        * -JS底层保存标识符时，实际上时采用的Unicode编码，
+        *   所以理论上讲，所有utf-8中的标识符都可以用作为标识符
+        *
+         *!/
+      var a_1_$=123;
+      console.log(a_1_$);*/
+
+    /*
+      *数据类型指的就是字面量的类型
+      * 在js中一共有6种数据类型
+          * String 字符串
+          * Number 数值
+          * Boolean 布尔值
+          * Null 空值
+          * Undefined 未定义
+          * Object 对象
+      *其中String Number Boolean Null Undefined属于基本数据类型
+      * Object属于引用数据类型
+       */
+
+      /*/!*
+      *string字符串
+      * -在js中字符串需要用引号引起来
+      * —使用双引号或单引号都可以，但是不要混着用
+       *!/
+      var str = "hello";//str为字符串，hello为变量
+      console.log(str);
+      str = "我说：'今天天气真不错'";
+      console.log(str);
+      str = "我说：\"今天天气真不错\"";//在字符串中可以使用斜杠\作为转义字符，当表示一些特殊符号时可以使用\进行转义
+      console.log(str);
+      //   \n表示换行
+      //   \t表示制表符tab键
+      //   \\表示\
+      str = "\\";
+      console.log(str);
+      //alert("str");//alert为警告弹窗。输出字面量 字符串str。加双引号表示字符串
+      //alert(str);//输出变量str。不加双引号表示变量
+
+      var str2 = "hello";//var只需要在首次声明变量的时候写
+      str2 = "nohello";//var已经声明，不需要再次声明。视为最后定义有效
+
+      //alert("hello,你好");
+      //console.log("不用出来");//顺序执行代码
+
+
+      /!*
+      *Number数值类型
+      * 在JS中所有的数值都是Number类型，
+      * 包括整数和浮点数（小数）
+       *!/
+      var a = 123.123;//数字123
+      var b = "123";//字符串123
+      //可以使用一个运算符typeof来检查一个变量的类型
+      //语法：typeof 变量
+      console.log(typeof a);//检查数值时，会返回number
+      console.log(typeof b);//检查字符串时，会返回string
+      console.log(a);
+      console.log(b);
+      console.log(Number.MAX_VALUE);//Number.MAX_VALUE在js中表示数字的最大值
+      var lt = Number.MAX_VALUE;
+      console.log(lt*lt);//超过Number.MAX_VALUE的值则返回 Infinity 表示正无穷.Infinity属于Number
+      lt = Number.MIN_VALUE;//大于0的最小正数值5e-324
+      console.log(lt);
+      console.log(lt*lt);
+      a = "abc" * "bcd";//返回NaN。NaN是一个特殊的数字，表示Not A Number
+      var c = 0.1+0.2;
+      console.log(c);//如果使用js进行浮点（小数）运算，可能得到不精确的结果。所以千万不要使用js进行精确度要求比较高的运算
+
+      /!*
+      *Boolean布尔值
+      *   布尔值只有两个。主要用于做逻辑判断
+      *   true真和false假
+      *
+      *
+       *!/
+      var bool = true;
+      console.log(typeof bool);//使用typeof检查布尔值时返回boolean
+      console.log(bool);
+
+      /!*
+      *Null类型的值只有一个，就是null
+      *Undefined类型的值也只有一个，就是undefined
+      *
+      *
+       *!/
+      var d = null;
+      console.log(d);
+      console.log(typeof d);//使用typeof检查一个null值时，会返回object。
+      var e;
+      console.log(e);
+      console.log(typeof e);*/
+
+    /*
+          *强制类型转换
+          *  - 指将一个数据类型强制转换成其他的数据类型
+          *  - 类型转换主要指将其他的数据类型转换成
+          *   String Number Boolean
+           */
+
+
+    /*
+    *将其他的数据类型转换成String
+     */
+    /*
+            var a = 123;
+            console.log(typeof a);
+            console.log(a);
+            //方式一：调用被转换数据类型的toString()方法
+            //该方法没有影响原变量，它会将转换的结果返回
+                //调用a的toString()方法
+                //调用xxx的yyy()方法，就是xxx.yyy();
+
+            var b = a.toString();
+            console.log(b);
+            c = null;
+            c = c.toString();//报错
+            d = undefined;
+            d = d.toString();//报错
+            //null和undefined这两个值没有toString()方法，如果调用他们的方法，会报错
+
+            //方法二：调用String()函数，并将被转换的数据作为参数传递给函数
+            a = 123;
+            a = String(a);//调用String()函数，来将a转换为字符串
+                console.log(a);
+            a = null;
+            a = String(a);//字符串null
+                console.log(a);
+            a = undefined;
+            a = String(a);//字符串undefined
+                //使用String进行强制转换时，对于Number和Boolean实际上就是调用的toString()方法，但是对于null和undefined，就不会调用toString()方法。
+                //它会将字面量null和字面量undefined直接转换为字符串
+    */
+
+
+        /*/!*
+        *将其他的数据类型转换为Number
+        *   转换方式一：使用Number()函数
+        *       -字符串-->数字
+        *           1.如果是纯数字的字符串，则直接转换成数字
+        *           2.如果字符串中有非数字内容，则转换为NaN
+        *           3.如果字符串是一个空串或者是一个全是空格的字符串，则转换为0
+        *       -布尔值-->数字
+        *           1. true 转成1
+        *           2.false 转成0
+        *       -Null-->数字    0
+        *       -undefined-->数字 NaN
+        *
+        *   转换方式二：
+        *           这种方式专门用来转换字符串
+        *           parseInt()把一个字符串转换为一个整数
+        *           parseFloat()把一个字符串转换成一个浮点数
+        *
+         *!/
+        var z = 123;//纯数字类型
+        z = Number(z);//调用Number函数来将z转换为Number类型
+        console.log(typeof z);
+        console.log(z);
+
+        z = "abc";//非数字内容，则转换为NaN
+        z = Number(z);
+        console.log(typeof z);
+        console.log(z);
+
+        z = " ";//空串或者是一个全是空格的字符串，则转换为0
+        z = Number(z);
+        console.log(typeof z);
+        console.log(z);
+
+        z = true;//true 转成1
+        z = Number(z);
+        console.log(typeof z);
+        console.log(z);
+
+        z = false;//false 转成0
+        z = Number(z);
+        console.log(typeof z);
+        console.log(z);
+
+        z = null;//Null-->数字 0
+        z = Number(z);
+        console.log(typeof z);
+        console.log(z);
+
+        z = undefined;//undefined-->数字 NaN
+        z = Number(z);
+        console.log(typeof z);
+        console.log(z);
+
+        //专门转换字符串
+        z = "123px";
+        z = parseInt(z);//调用parseInt()函数将a转换成Number。parseInt()可以将字符串中的有效整数内容取出来，然后转换成Number
+        console.log(typeof z);
+        console.log(z);
+
+        //专门转换字符串
+        z = "123.321px";
+        z = parseFloat(z);//可以获得有效小数
+        console.log(typeof z);
+        console.log(z);
+
+        z = true;
+        z = parseInt(z);//如果对非String使用parseInt()或parseFloat()，它会先将其转换成String，再操作
+        console.log(typeof z);
+        console.log(z);
+
+        z = "123px";
+        z = parseInt(z);
+        console.log(typeof z);
+        console.log(z);
+
+        /!*
+        *在js中，如果需要表示16进制的数字，则需要0x开头
+        *       如果需要表示8进制的数字，则需要0开头
+        *       如果要表示2进制数字，则需要0b开头，但是不是所有浏览器都支持
+         *!/
+        q = 0x10;//10进制数字
+        q = 0xff;//10进制数字
+        q = 0xCafe;//10进制数字
+        q = 0o70;//以0开头的是8进制数字
+        q = 0b10;//2进制开头
+
+        q = "0o70";//像”070“这种字符串，有些浏览器会当成8进制解析，有时会当成10进制解析
+        q = parseInt(q,10);//10表示10进制，可以在parseInt()中传递第二个参数，来指定数字的参数
+        console.log(typeof q);
+        console.log(q);
+
+
+
+        /!*
+        *转换成Boolean
+        *   -使用Boolean()函数
+        *       -数字-->布尔值
+        *           -除了0和NaN，其余都是true
+        *       -字符串-->布尔值
+        *           -除了空串，其余都是true
+        *       -null和undefined都会转换为false。。非零非空即为真
+        *       -对象也会转换为true
+         *!/
+        var w = 123;//true
+        w = -123;//true
+        w = 0;//false
+        w = Infinity;//true
+        w = NaN;//false
+        //调用Boolean函数来将w转换为布尔值
+        w = Boolean(w);
+        console.log(typeof w);
+        console.log(w);
+        w = "hello";//字符串都为true
+        w = "";//空串为false
+        w = Boolean(w);
+        console.log(typeof w);
+        console.log(w);
+        w = null;//null转换为false
+        w = Boolean(w);
+        console.log(typeof w);
+        console.log(w);
+        w = undefined;//undefined转换为false
+        w = Boolean(w);
+        console.log(typeof w);
+        console.log(w);*/
+
+        /*/!*
+        *   运算符也叫操作符
+        *       通过运算符可以对一个或多个值进行运算
+        *       比如：typeof就是运算符，可以来获得一个值的类型
+        *           它可以将该值的类型以字符串的形式返回
+        *           number string boolean undefined object
+        *
+        *   算数运算符--不会对原变量产生影响
+        *       当对非Number类型的值进行运算时，会将这些值转换为Number再进行运算
+        *           任何值和NaN进行运算，都是NaN
+        *   + 可以对两个值进行加法运算，并将结果进行返回.
+        *       如果对两个字符串进行加法运算，则会进行拼串操作。
+        *       任何的值和字符串做加法运算，都会先转换字符串，再进行拼串
+        *   - 可以对两个值进行减法运算，并返回
+        *   * 可以对两个值进行乘法运算
+        *   / 除法运算
+        *   % 取模运算（取余数）
+        *
+         *!/
+        var a = 123;
+        //typeof a运算符只能声明全局变量，但是函数可以声明局部变量
+        var result = typeof a;
+        result = 123 + 234;//357
+        result = true + 1;//1+1=2
+        result = true + false;//1+0=1
+        result = 1 + null;//1+0=1
+        result = 1 + NaN;//1+NaN=NaN
+        result = "123" + "123";//对两个字符串进行加法运算，则会进行拼串操作。
+        result = "你好" + "大帅哥";//进行拼串
+        console.log(typeof result);
+        console.log(result);
+        var str = "锄禾日当午，"+
+                "汗滴禾下土，"+
+                "谁之盘中餐，"+
+                "粒粒皆辛苦。";//加号可以换行。
+        console.log(str);
+        result = 123 + "1";//任何值+字符串。都转换成“字符串+字符串”进行拼串
+        console.log(result);
+        var c = 123;
+        c = c + "";//任意数据类型加空串变换为字符串String数据类型。隐式转换，由浏览器自动完成，实际上它也是调用String
+        console.log(typeof c);
+        console.log(c);
+        console.log("c ="+c);
+        result = 1 + 2 + "3";//33，先进行number相加，再进行拼串
+        console.log("result = "+result);
+        console.log(typeof result);
+        result = 1 + "2" + 3;//123
+        console.log("result = "+result);
+        console.log(typeof result);
+        result = "1" + 2 + 3;//123,先进行拼串，再进行拼串
+        console.log("result = "+result);
+        console.log(typeof result);
+        result = 100 - "123";
+        console.log("result = "+result);
+        console.log(typeof result);
+        result = 2 * undefined;//任何数与NaN运算都为NaN
+        console.log("result = "+result);
+        console.log(typeof result);
+        result = 1 * null;
+        console.log("result = "+result);
+        console.log(typeof result);
+        result = 1 / 3;
+        console.log("result = "+result);
+        console.log(typeof result);
+        /!*
+        *   任何值做- * /运算时都会转换成Number
+        *       利用特点进行隐式的类型转换
+        *       可以通过为一个值 -0 *1 /1来将其转换成Number
+        *       原理和Number()函数一样，但使用起来更简单
+         *!/
+        result = 9 % 3;//余0
+        console.log("result = "+result);
+        console.log(typeof result);
+        result = 9 % 4;//余1
+        console.log("result = "+result);
+        console.log(typeof result);
+
+
+
+
+        /!*
+        *   一元运算符，只需要一个操作数
+        *   +  正号
+        *       正号不会对数字产生任何影响
+        *   -  负号
+        *       负号可以对数字进行负号的取反
+        *   对于非Number类型的值，它会先转换成Number再运算。可以对其他的数据类型使用+，来将其转换成Number。原理和Number()函数一样
+        *   可以对其他数据类型使用+来转换成number
+         *!/
+        var a = 123;
+        a = +a;
+        console.log("a = "+a);//得123，不会对值产生任何影响
+        console.log(typeof a);
+        console.log("a = "-a);//得-123，会对值产生取反影响
+        console.log(typeof a);
+        a = true;
+        a = -a;//首先a转换成number，然后取反
+
+        var result = 1 + '2' + 3;
+        console.log("result = " +result);//等于6.*/
+
+        /*/!*
+        *自增++
+        *   -通过自增可以使变量在自身得基础上加1
+        *   -对于一个变量自增以后，原变量得值会立即自增1
+        *   自增分为两种：a++，和++a。
+        *       无论是a++还是++a，都会立即使原变量得值自增1；
+        *           不同得是a++和++a得值不同
+        *       a++的值等于原变量的值（自增以前）
+        *       ++a的值等于原变量自增后的值（自增后）
+        *
+         *!/
+
+        var a = 1;//a是一个变量
+        a = a+1;
+        console.log("a="+a);
+        a++;//每调一次加1，a++是一个表达式
+        console.log("a="+a);
+        ++a;//
+        console.log(a++);//值为1，自增以前
+        console.log(++a);//值为2，自增以后
+
+        var c = 10;
+        c++;//第一次c++是在10的基础上自增
+        console.log(c++);//输出为11，因为上一个表达式已经加过了，是在11的基础上自增
+
+        var d = 20;
+        //console.log(++d);//输出为21，++d为新值已运行
+        //console.log(++d);//输出为22
+
+        //var result = d++ + ++d +d;//20 + 22 + 22
+        //console.log("result ="+result);//得64
+
+        d = d++;//d++等于原值
+        console.log("d ="+d);//得20
+
+
+        /!*
+        *自减
+        *       通过变量在自身得基础上减1
+        *       自减分为两种：前--（--a）和后--（a--）
+        *       无论是a--还是--a，都会立即使原变量得值自减1
+        *       不同得是a--和--a得值不同
+        *           a--是变量原值，--a是变量新值
+        *
+        *
+        *
+         *!/
+
+        var num = 10;
+        num--;
+        console.log("num ="+num);
+
+        q = "练习：";
+        console.log(q);
+
+        var n1=10,n2=20;
+        var n = n1++;
+        console.log('n='+n);//10
+        console.log('n1='+n1);//11
+        n = ++n1;//上一个表达式，已经将n1变为11了。
+        console.log('n='+n);//12
+        console.log('n1='+n1);//12
+        n = n2--;
+        console.log('n='+n);//20
+        console.log('n2='+n2);//19
+        n = --n2;//上一个表达式，已经将n2变为19
+        console.log('n='+n);//18
+        console.log('n2='+n2);//18*/
+
+        /*/!*
+        *   JS中为我们提供了三种逻辑运算符
+        *   ！非
+        *       -！可以用来对一个值进行非运算
+        *       -非运算就是对一个布尔值进行取反，true变false，false变true
+        *       -如果进行两次取反，不会变化
+        *       -如果对非布尔值进行运算，则将值变为布尔值，再取反，所有可以利用该特点来将其他的数据类型转换成布尔值。可以为任意数据类型取两次反，来将其转换成布尔值，原理和Boolean（）一致
+        *   &&与
+        *       -&&可以对符号两侧的值进行与运算并返回结果
+        *       -运算规则：只要两个值中有一个值为false就返回false，只有两个值都为true才会返回true
+        *       -JS中的“与”属于短路的与，如果第一个值为false，则不会看后面的
+        *   ||或
+        *       -||或运算可以对符号两侧的值进行或运算并返回结果
+        *       -两个值只要有一个true就返回true，全false才返回false
+        *       -JS中的“或”属于短路的或，如果第一个值为true，则不会看后面的
+         *!/
+
+        //与运算
+        var result = true && true;
+        console.log("result ="+result);//如果两个都是true则返回true
+        var result = true && false;
+        console.log("result ="+result);//只要有一个false就返回false
+        true && alert("我出不出来");//能看到
+        false && alert("我出不出来");//看到了false，则不返回
+
+        //或运算
+        result = true || false;
+        console.log("result ="+result);//只要有true，就为true。全false才为false
+        false || alert("123");//第一个值为false则检查第二个值。
+        true || alert("123");//第一个值为true，则不检查第二个值
+
+        //非运算
+        var a = true;
+        a=!a;//对a进行非运算
+        console.log("a="+a);//答案为false
+        var b = 10;//number数据类型
+        b=!b;
+        console.log("b="+b);//答案为false
+        console.log(typeof b);//boolean布尔值
+
+
+        /!*
+        *&& || 非布尔值的情况
+        *       -对于非布尔值进行与或运算时，先将其转换成布尔值，再进行运算,并且返回原值
+        *       -&&“与”运算：
+        *           -如果第一个值为true。则返回第二个值
+        *           -如果第一个值为false。则返回第一个值
+        *       -||“或”运算：
+        *           -如果第一个值为true。则直接返回第一个值
+        *           -如果第一个值为false。则直接第二个值
+        *
+         *!/
+        var result = 1 && 2;//与运算，如果两个值都为true，则返回后边的
+        console.log("result ="+result);
+        result = 0 && 2;//与运算，如果有false，则返回false，0
+        console.log("result ="+result);
+        result = NaN && 0;//两个都是false，则返回前面的
+        console.log("result ="+result);
+
+
+        /!*
+        *赋值运算符
+        *   =
+        *       可以将符号右侧的值赋值给符号左侧的变量
+        *   +=
+        *       a+=5等价于a=a+5，+=是一个运算符
+        *   -=
+        *   *=
+        *   /=
+        *   %=模等于，模为取余数
+        *
+         *!/
+        var a = 123;
+        a += 5;//a = a + 5等价于a+=5
+        console.log("a="+a);
+
+
+        /!*
+        *关系运算符
+        *   通过关系运算符可以比较两个值之间的大小关系
+        *   如果关系成立会返回true，如果不成立返回false
+        *
+        * >大于号
+        *   -如果关系成立，返回true，不成立返回false
+        * >= 大于等于
+        *   -判断左侧是否大于或等于右侧值
+        * <小于号
+        * <=小于等于
+        *
+        * 非数值的情况
+        *   -对于非数值进行比较，会将字符串转换成数字再进行运算
+        *   -如果符号两侧的值都是字符串，不会将其转换为数字进行比较，而会分别比较字符串中字符的Unicode编码
+         *!/
+        var poi = 5>10;
+        console.log("poi ="+poi);//false
+        console.log(1>true);//false
+        console.log(1>=true);//true
+        console.log(1>"0");//true
+        console.log(10>null);//true
+        console.log(10>"hello");//false,转换成NaN。任何值和NaN做任何比较都是false
+        console.log("5">"1");//true
+        console.log("10">"15");//true
+        console.log("a"<"b");//true
+        console.log("a">"b");//false
+        console.log("abc"<"b");//true,比较字符编码时，是一位一位进行比较。如果两位相同，则比较下一位，所以借用它来对英文进行排序。
+        console.log("我"<"你");//比较中文没有意义
+        console.log("11"<"5");//true，比较第一位已经出结果，不比较后位。如果比较两个字符串型的数字，可能得到不可预期的结果
+        //注意在比较两个字符串型的数字时，一定一定要转型
+
+
+        /!*
+        *   在字符串中使用转译字符输入Unicode编码
+        *   在JS中使用方法:\u四位编码
+         *!/
+
+
+        /!*
+        *相等运算符用来比较两个值是否相等
+        *   如果相等返回true，否则返回false
+        *   使用==来做相等运算
+        *       当使用==来做比较两个值时，如果值得类型不同，则会自动进行类型转换，将其转换为相同得类型，然后再进行比较
+         *!/
+        console.log("1"==1);//true,大部分情况转换为数字
+        console.log(true == "1");//将字符串和布尔值都转换成number，true为1，“1“为1
+        console.log(true == "hello");
+        console.log(null == 0);//false,没有转换成number
+        console.log(undefined == null);//undefined衍生自null，所以这两个值做相等判断时会返回true
+        console.log(NaN==NaN);//false，NaN不和任何值相等，包括他本身
+        //可以通过isNaN()函数来判断一个值是否为NaN
+        console.log(isNaN(NaN));//如果该值为NaN，则返回true，否则返回false
+
+
+        /!*
+        *   不相等运算符
+        *       ！=来做不相等运算，与相等运算符相反
+        *       如果相等返回false，否则返回true
+         *!/
+        console.log(10!=5);//true
+        console.log("abcd"!="abcd");//false
+        console.log("1"!=1);//false,它会对变量进行自动得类型转换，如果转换后相等，也会返回false
+
+
+        /!*
+        *   ===
+        *       全等，用来判断两个值是否全等，不同得是不会进行类型转换，如果类型不同直接返回false
+        *   !==
+        *       不全等，用来判断两个值是否不全等
+         *!/
+        console.log("123"===123);//false,类型不一样，直接返回false
+        console.log(1!=="1");//true,类型不一样，直接返回true
+
+
+        /!*
+        *   条件运算符也叫三元运算符
+        *       语法：    条件表达式?语句1:语句2；
+        *       执行流程： 条件运算符再执行时，首先对条件表达式进行求值，
+        *                   如果该值为true，则执行语句1，并返回执行结果
+        *                   如果该值为fasle，则执行语句2，并返回执行结果
+        *                   如果条件表达式的求值结果为一个非布尔值，则会将其转换成布尔值再进行运算
+         *!/
+        //表达式：true?alert("语句1"):alert("语句2");//执行的语句1
+        //表达式：false?alert("语句1"):alert("语句2");//执行的语句2
+        var li = 10;
+        var jin = 20;
+        var mao = 50;
+        li >jin?alert("li大"):alert("jin大");//对表达式求值，如果为true执行语句1，如果为false执行语句2
+        var maxmao = li > jin?li:jin;//获取li和jin中的最大值
+        //获取li jin mao 中的大值
+        maxmao = maxmao > mao?maxmao:mao;
+        console.log("maxmao ="+maxmao);
+        maxmao = li > jin ? li > mao ? li : mao : jin > mao ? jin : mao;//li > jin ? (li > mao ? li : mao) : (jin > mao ? jin : mao);
+        //这种套娃写法，不方便阅读，不推荐
+
+
+        /!*
+        *    ,   运算符
+        *       使用 , 可以分割多个语句，一般可以在声明多个变量时使用，
+        *       可以声明多个变量并赋值
+         *!/
+        var a=1,b=2,c=3;
+        alert(a);
+        alert(b);
+        alert(c);
+
+        /!*
+        *运算符的优先级
+        *       和数学中一致，先乘除，后加减
+        *       在JS中有一个符号优先级的表，在表中越靠上，优先级越高，优先级越高越先计算
+        *       但是表并不需要记忆，如果遇到优先级不清楚，可以使用（）来改变优先级
+         *!/
+        var result = 1 + 2 * 3;
+        result = 1 || 2 && 3;
+        //如果||或的优先级高，或者两个一样高，则顺序计算，应该返回3
+        //如果&&与的优先级高，则应返回1
+        console.log("result ="+result);//返回1*/
+
+        /*/!*
+        *   我们的程序是由一个一个语句构成
+        *   语句是按照自上向下的顺序一条一条执行
+        *   在JS中可以使用{}来为语句进行分组
+        *       同一个{}中的语句为一组语句
+        *       要么都执行，要么都不执行
+        *       一个{}中的语句也被称为代码块
+        *       {}代码块后不用编写分号；
+        *       JS中代码块只有分组作用，没有其他作用
+         *!/
+        {
+          alert("hello");
+          console.log("hello");
+          document.write("hello");
+          var daimakuai =10;
+        }
+        console.log("代码块内的内容="+daimakuai);//可以在代码块外调用
+
+
+        /!*
+        *   流程控制语句
+        *       JS中的程序是从上至下一行一行执行
+        *       通过流程控制语句，可以控制程序执行流程，使程序可以根据一定的条件来选择执行
+        *   语句的分类：
+        *       1、条件判断语句
+        *       2、条件分支语句
+        *       3、循环语句
+         *!/
+        /!*
+        *   条件判断语句：
+        *       使用条件判断语句，可以在执行某个语句之前进行判断
+        *       如果条件成立才会执行语句，条件不成立则不执行
+        *           if语句
+        *           语法一：
+        *               if（条件表达式）{
+        *                   语句1
+        *               }
+        *                   if语句在执行时，会先对条件表达式进行求职判断
+        *                   如果值为true，则会执行if后的语句
+        *                   如果表达式的值为false，则不会执行if后的语句
+        *                   if语句只能控制紧随其后的那个语句，如果需要多控制，加代码块{}进行控制
+        *                   if语句后的代码块不是必须的，但是在开发中尽量写上代码块，即使只有一条语句
+        *           语法二：if...else...语句
+        *               if(条件表达式){
+        *                   语句1
+        *               }else{
+        *                   语句2
+        *               }
+        *                   当该语句执行时，会先对if后的条件表达式进行求值判断，
+        *                   如果该值为true，则执行fi后的语句，
+        *                   如果该值为false，则执行else后的语句
+        *           语法三：if...else if...else语句
+        *               if(条件表达式){
+        *               语句1
+        *               }else if(条件表达式){
+        *                   语句2
+        *               }else if(条件表达式){
+        *                   语句3
+        *               }else{
+        *                   语句4
+        *               }
+        *                   该语句执行时，会从上到下依次对条件表达式进行求值
+        *                   如果值为true，则会执行当前语句
+        *                   如果值为false，则会继续向下判断
+        *                   如果所有的条件都不满足，则执行最后的else后的语句块。也可以不写，就不执行
+        *                   该语句中，只会有一个代码块被执行，一旦代码块执行，则直接结束语句
+         *!/
+        //语法一：
+        var a=15;
+        if (a>10) {
+          alert("成立，就出来了");//a>10就执行alert语句。
+          alert("依旧出来");//没法控制多行
+        }
+        if (a > 10 && a <= 20){
+          alert("a大于10，且a小于20");
+        }
+        //语法二：
+        var age = 60;
+        if (age>=60){
+          alert("你已经退休了");
+        }else{
+          alert("你没有退休");
+        }
+        //语法3
+        age = 10;
+        if (age>100){
+          alert("活的太久了");
+        }else if (age>80){
+          alert("活的够久了");
+        }else if (age>18){
+          alert("你已经成年了");
+        }else{
+          alert("你还只是个孩子");
+        }
+        if (age>17){
+          alert("成年了")
+        }else if (age>30){
+          alert("中年人了")
+        }else{
+          alert("该退休了")
+        }//顺序错了后，后面的就为死代码，不会执行后面的语句。更改办法如下
+        if (age>17 && age <= 30){
+          alert("成年了")
+        }else if (age>30){
+          alert("中年人了")
+        }else{
+          alert("该退休了")
+        }
+
+        var hahaha = 10;
+        if (hahaha === 10){//一定要是两个等号，一个等号代表赋值。会一直输出
+          alert("哈哈哈")
+        }
+
+
+        /!*
+        *   条件分支语句，也叫switch语句
+        *       语法
+        *           switch(条件表达式){
+        *               case表达式:
+        *                   语句...
+        *                   break;
+        *               case表达式:
+        *                   语句...
+        *                   break;
+        *               default：
+        *                   语句...
+        *                   break;
+        *           }
+        *       执行流程：
+        *           switch...case...语句
+        *           在执行时会依次将case后的表达式和switch后的条件表达式的值进行全等比较
+        *               如果比较结果为true，则从当前case处开始执行代码，后面的代码都要执行
+        *                   在case后面使用break;可以来退出switch语句。可以确保只会执行当前case语句，不会执行之后的case语句
+        *               如果比较结果为false，则会继续向下比较
+        *               如果所有比较结果都为false，则只执行default后的语句
+        *       switch语句和if语句的功能实际上有重复，使用switch可以实现if的功能，
+        *           使用if可以实现switch语句的功能，视习惯选择
+         *!/
+        var shuzi = 1;
+        switch (shuzi){
+          case 1:
+            console.log("一");
+            break;
+          case 2:
+            console.log("二");
+            break;
+          default://
+            console.log("非数字");
+            break;
+        }
+
+
+        /!*
+        *   循环语句：
+        *       通过循环语句可以反复的执行一段代码多次
+        *
+        *   while循环
+        *       语法：
+        *           while(条件表达式){
+        *               语句...
+        *           }
+        *   while语句在执行时，先对条件表达式进行求值判断
+        *       如果值为true，则执行循环体，循环体执行完毕以后，继续对表达式进行判断.如果为true，则继续执行
+        *       如果为false，则终止循环
+        *
+        *   do...while循环
+        *       语法：
+        *           do{
+        *               语句...
+        *           }while(条件表达式);
+        *       执行流程：
+        *           do...while语句在执行时，会先执行循环体，
+        *               循环体执行完毕以后，在对while后的表达式进行判断
+        *               如果为true，则继续执行循环体，执行完毕继续判断以此类推
+        *               如果为false，则种植循环
+        *
+        *   do...while和while的区别在于在于先执行后判断，while是先判断后执行。do...while可以保证循环体至少执行一次。而while不能
+         *!/
+        var n=1;
+        while (true){//将条件表达式写死为true的循环，叫死循环。该循环不会停止，除非浏览器关闭。
+          alert(n++);
+          if(n == 10){
+            break;
+          }
+        }
+        //创建循环，需要三步。
+        //1.创建初始化变量
+        var xunhuan = 0;
+        //2.在循环中设置一个条件表达式
+        while (xunhuan<=5200){
+          //3.定义一个更新表达式，每次更新初始化变量
+          document.write(xunhuan++ +"<br/>");
+        }
+
+
+        /!*
+        *   for语句，也是一个循环语句，也称为for循环
+        *       在for循环中，为我们提供了专门的位置用来放三个表达式：
+        *           1.初始化表达式
+        *           2.条件表达式
+        *           3.更新表达式
+        *       for循环语句：
+        *           for（①初始化表达式；②条件表达式；④更新表达式）{
+        *               ③语句...
+        *           }
+        *       for循环执行流程：
+        *           1.执行初始化表达式，初始化变量（初始化表达式只执行一次）
+        *           2.执行条件表达式，判断是否执行循环。如果为true则执行块中的语句，false则终止循环
+        *           3.执行更新表达式，执行完毕后继续重复条件表达式
+        *
+        *       for循环中的三个部分都可以省略，也可以写在外部。都不写表达式就是死循环。
+         *!/
+
+        /!*!//创建一个执行10次的while循环
+        //初始化表达式
+        var u = 0;
+        //创建一个循环，定义条件表达式
+        while(u < 10){
+            //设置更新表达式
+            alert(u++);
+        }*!/
+        for (var u = 0; u <= 10; u++){
+          alert(u);
+        }//比while循环结构更加清晰
+
+        /!*
+        *   嵌套for循环
+        *   通过程序，在页面中输入如下的图型：
+        *   *
+        *   **
+        *   ***
+        *
+         *!/
+        //向body中输出一个内容,正向增加
+        for (var i=0;i<11;i++){//这个最外部的for循环执行几次，图形高度就是多少。可以用来控制图形的高度
+          for (var u=0;u<i+1;u++){//内层循环可以决定图像的宽度，执行几次宽度就为多少
+            document.write("*&nbsp;&nbsp;&nbsp;");//&nbsp;空格符
+          }
+          document.write("<br/>");
+        }
+        //向body中输入，倒叙增加
+        for (var i=0;i<10;i++){//这个最外部的for循环执行几次，图形高度就是多少。可以用来控制图形的高度
+          for (var u=0;u<10-i;u++){//内层循环可以决定图像的宽度，执行几次宽度就为多少
+            document.write("*&nbsp;&nbsp;&nbsp;");//&nbsp;空格符
+          }
+          document.write("<br/>");
+        }
+        //99乘法表
+        for (var n=1;n<100;n++){
+          for (var k=1;k<n+1;k++){
+            document.write("<span>"+k+"*"+n+"="+n*k+"</span>");
+          }
+          document.write("<br/>");
+        }
+        //打印1-100之间所有的质数
+        for (var i=2;i<=1000;i++){
+          var flag=true;
+          for (var j=2;j<i;j++){
+            if (i%j==0){
+              flag=false;
+            }
+          }
+          if (flag){
+            document.write(i+"<br/>");
+          }
+        }
+
+        /!*
+        *   break关键词可以用来退出switch或循环语句
+        *   不能再if语句中使用break和continue
+        *   break关键字，会立即终止离他最近的那个循环
+        *   可以为循环语句撞见一个laberl标签，来标识当前的循环
+        *   label:循环语句
+        *   使用break语句后，可以再break后跟一个label标签，这样break将会结束指定的循环。而不是最近的
+         *!/
+        for (var i=0;i<10;i++){
+          console.log("外"+i);
+          for (var j=0;j<10;j++){
+            break;//只终止离他最近的循环
+            console.log("内"+j);
+          }
+        }
+        for (var a=0;a<10;a++){
+          if (a==2){
+            continue;//continue关键字可以用来跳过当次循环，同样continue只会默认最近的循环语句
+          }
+          console.log(a);
+        }
+        //测试如下的程序的性能。在程序执行前，开启计时器。
+        //console.time(“计时器”)可以用来开启一个计时器。他需要一个字符串作为参数，这个字符串将会作为计时器的标识
+        console.time("计时器");
+        for (var i=2;i<=100000;i++) {
+          var flag = true;
+          for (var j = 2; j <= Math.sqrt(i); j++) {//修改j<=后，还可以减少检查值的范围，增快代码运行速度
+            if (i % j == 0) {
+              flag = false;
+              break;//break终止不必要的循环，可以增快代码运行速度
+            }
+          }
+          if (flag) {
+            document.write(i + "<br/>");
+          }
+        }
+        console.timeEnd("计时器");//console.timeEnd("名字")终止计时器
+        Math.sqrt(16);//可以通过Math.sqrt（）进行一个数的开方
+        var forin = {fname:"bill",lname:"all",age:"12",
+          fname:"wa",lname:"uuuu",age:"76",
+        };
+        var forin1 ="";
+        for (x in forin){
+          console.log(forin1+=forin[x]);
+        }*/
+
+        /*/!*
+        *   JS中数据类型
+        *       String    字符串
+        *       Number    数值
+        *       Boolean   布尔值
+        *       Null      空值
+        *       Undefined 未定义
+        *           以上五种类型属于基本数据类型，看到的值只要不是以上五种那全是对象
+        *       Object    对象：引用数据类型
+        *
+        *   基本数据类型都是单一的值
+        *   值和值之间没有任何联系，对象可以将多个不同数据类型的属性
+        *
+        *   对象的分类：
+        *       1.内建对象
+        *           -由ES标准中定义的对象，在任何的ES的实现中都可以使用
+        *           -比如：Math String Number Boolean Function Object...
+        *       2.宿主对象
+        *           -由JS的运行环境提供的对象，目前主要指由浏览器提供的对象
+        *           -例如：BOM  DOM
+        *       3.自定义对象
+        *           -由开发人员自己创建的对象
+        *
+         *!/
+        //创建对象,
+        var obj = new Object(123);//使用new关键字调用的函数，是构造函数constructor，是专门用来创建对象的
+        console.log(typeof obj);//用typeof检查一个对象时，会返回object
+        /!*
+        *   在对象中保存的值称为属性
+        *   向对象添加属性
+        *   语法:对象.属性名 =属性值；
+         *!/
+        obj.name = "lijinmao";//向obj中添加一个name属性
+        obj.age = "18";//向obj中添加一个age属性
+        obj.gender = "女";//向obj中添加gender属性
+        /!*
+        *   读取对象中的属性
+        *       语法:对象.属性名
+         *!/
+        console.log(obj.age);
+        console.log(obj.hello);//如果读取对象中没有属性，不会报错而是返回undefined
+        /!*
+        *   修改对象的属性值
+        *       语法：对象.属性名 = 新值;
+         *!/
+        obj.name = "lijinmao1";
+        /!*
+        *   删除对象的属性
+        *       语法:delete 对象.属性名
+         *!/
+        delete obj.name;
+        console.log(obj.name);*/
+
+        /*var a = 1 + 5 + 4 + "9" + 1 +3;//运算符，先运算Number类型，在转换成String类型，进行级联
+        console.log(a);
+        console.log(typeof a);//typeof展示当前字符类型
+
+        //全局作用域let和const
+        let i =10000;//let不会被循环所影响，循环外调用依旧是let赋值
+        for (let i=0;i<3;i++){
+          console.log(i)//循环内的变量不会被let影响，值按照循环条件语句进行
+        }
+        {
+          let i = 2;
+          console.log(i,typeof i);
+        }
+        console.log(i);
+
+        shiyan = "哈哈";//var在
+        console.log(shiyan);
+        let shide;
+        console.log(typeof shide);
+        shide ="哈哈哈";
+        console.log(shide,typeof shide);
+        shide = 123;
+        console.log(shide,typeof shide);
+        shide = true;
+        console.log(shide,typeof shide);
+
+        const myconst = "123";//const无法重新赋值
+        console.log(myconst,typeof myconst);
+
+        var myconst2 = 123;
+        {
+          const myconst2 = "是的";
+          console.log(myconst2,typeof myconst2);//语句块内的const无法对外做影响，只能对块内的变量做声明
+        }
+        console.log(myconst2,typeof myconst2);//const无法对块外的数据进行声明
+
+        const myconst4 = {const1:123,const2:true,const3:"第一"};//const必须在声明变量时进行赋值，对象内可以为不同的数据类型
+        console.log(myconst4,typeof myconst4);
+        myconst4.const2=false;
+        console.log(myconst4.const2,typeof myconst4.const2);
+        //myconst4 = {const1:321,const2:true,const3:"第二"};//无法对const声明的对象进行赋值
+
+        const myconst5 = ["一",123,true];
+        console.log(myconst5,typeof myconst5);
+        myconst5.push(null);//可以增加数组内的元素
+        console.log(myconst5,typeof myconst5);
+        myconst5[1] = 321;//可以更改数组内的单个元素
+        console.log(myconst5[1],typeof myconst5[1]);//可以对const声明的数组进行声明。
+
+        var var1 = 123;
+        //const var1 = 123;//在同一作用域或块中，不允许将已有的 var 或 let 变量重新声明或重新赋值给 const
+        {
+          let var1 =321;
+          //const var1 =321;//在同一作用域或块中，不允许将已有的 var 或 let 变量重新声明或重新赋值给 const
+          console.log(var1);
+        }
+        console.log(var1);
+
+        const const1 = 123;
+        //const const1 = 321;//在同一作用域或块中，为已有的 const 变量重新声明声明或赋值是不允许的
+        {
+          const const1 = 312;
+          console.log("块内的const1="+const1,typeof const1);
+        }//在另外的作用域或块中重新声明 const 是允许的：
+        console.log("块外const1="+const1,typeof const1);
+
+        var2 = 123;
+        console.log("var2="+var2,typeof var2);//可以先使用变量再用var进行声明
+        var var2;
+        console.log("var2="+var2,typeof var2);
+        /!*var3 = "123";
+        console.log(var3,typeof var3);//let无法先使用变量，后声明
+        let var3;*!/
+        /!*var3 = 123;
+        console.log("var3="+var3);//const无法先使用变量，后声明
+        const var3;*!/
+
+        console.log("除法9/4="+9/4);//除法不进行取整
+        console.log("除法取整9/4="+parseInt(9/4),typeof parseInt(9/4));
+        console.log("取余数9/4="+9%4);
+        var c = 9;
+        c += 4;//+=为原值加+=右侧值，返回相加后的数值-=  /=  *=  %=同理
+        console.log("增加一个值(9+=4)="+c);
+        var b = c * "五";
+        console.log("9+五="+b);//等于NaN
+        var d = c ** 3;
+        console.log("13的3次幂="+d);//幂运算为**
+        d %= 15;
+        console.log("2197/15的余数赋值给d="+d);
+        d **= 2;
+        console.log("7的二次幂赋值给d="+d);
+        d = 2e3;
+        console.log("2e3="+d);
+        d = 2e-3;
+        console.log("2e-3="+d);
+        d = null;
+        console.log("null的数据类型="+typeof d);
+
+        /!*
+        *  函数function的用法————关键词定义函数
+        *   function 函数名（参数1，参数2）{条件表达式}
+         *!/
+        function lianxi(a,b){
+          return a ** b;
+        }
+        console.log(lianxi(2,3));
+
+        //通过弹窗输入摄氏度Celsius degree转换为华氏度Fahrenheit 转变方式为摄氏度÷1.8+32=华氏度
+        //在function中声明的变量为局部变量，不可被外部使用
+        /!*var e = +prompt("请输入当前摄氏度");
+        function celsius(e){
+            return e/1.8+32;
+        }
+        console.log(celsius());//没有（）就会返回函数定义*!/
+
+        /!*function displayDate(){
+            document.getElementById("demo").innerHTML = Date();
+        }//在html中进行处理程序*!/
+
+        var txt = "文字需\"双引号，\'单引号，\\斜杠,\b退格符，\f换页符，\n新行，\r回车，\t水平制表符，\v垂直制表符";//”“内如需要再加”需要进行转译    \'为单引号‘     \"为双引号“   \\为反斜杠\
+        console.log(txt+"        字符串有 "+txt.length+" 个字符，包含符号");//变量名.length可以查询字符串长度
+
+        var string1 = "abc";
+        var string2 = new String("abc");
+        console.log("未使用new则数据类型为 "+typeof string1+"\n使用new后将数据类型转换为 "+typeof string2);
+        console.log("相等运算符为："+(string1==string2));
+        console.log("全等运算符为："+(string1===string2));
+        var string3 = new String("abc");
+        console.log("两个new String相等运算符为："+(string2==string3));//双方定义均为object，不是string，object无法进行比较
+
+        var qwe = "this is a English ，can you speak English ？";
+        console.log(qwe.indexOf("English"));//查询字符串首次出现得位置，空格也为1字符。indexOf为查找首个，lastIndexOf为查找末个
+        console.log(qwe.lastIndexOf("chinese"));//如果没有，则返回-1
+        console.log(qwe.indexOf("English",17));//后接数字，表示从多少位开始查询
+        console.log(qwe.search("English"));//搜索特定值的字符串，并返回匹配的位置：
+        console.log(qwe.slice(10,20));//提取字符串的某个部分并在新字符串中返回被提取的部分
+        console.log(qwe.slice(-20,-10));//从末尾开始计算提取位置
+        console.log(qwe.slice(10));//只有一个数值，则从当前数值位置进行裁剪，输出后面得数值
+        console.log(qwe.slice(-10));//从尾部开始计数，提取倒数10位
+        console.log(qwe.substring(10,20));//无法倒叙提取
+        console.log(qwe.substr(10,9));//第二个参数规定被提取部分的长度
+        console.log(qwe.replace("English","Chinese"));//替换查询到得第一个值，并返回替换后得语句
+        console.log(qwe.replaceAll("English","French"));//替换查询到得所有，并返回修改后得语句
+        console.log(qwe.replace(/english/i,"Korean"));//对大小写不一致，只针对首个
+        console.log(qwe.replace(/english/g,"Japanese"));//__________________为什么不能替换
+        var ewq = "English is the language of Americans.                   ";
+        console.log(qwe.concat(null,ewq));//整合两个或多个字符串
+        console.log(qwe.toLowerCase());//全部转译为小写
+        console.log(qwe.toUpperCase());//全部转译为大写
+        console.log("hello".concat(" ",qwe));//可以直接为字符串做整合
+        console.log(ewq.trim(ewq));//删除字符串两端的空格
+        console.log(qwe.charAt(5));//提取字符串下标的内容,从0开始
+        console.log(qwe.charCodeAt(5));//返回下标字符串的unicode编码。
+        console.log(qwe[5]);
+        qwe[5]="a"//只能用作查询，不能进行修改，只读。并不是数组
+        console.log(qwe[5]);
+        console.log(qwe.includes("English",10));//从第十位开始往后查询，包含值，返回true
+        console.log(qwe.startsWith("English",20));//从第20位开始，是否以English开头，不是，返回false
+        console.log("最后一位"+qwe.endsWith("?"));//是由空格结尾，检查最后得字符是否符合
+        let qwer =
+                `haha
+            heihei
+            yoyo
+            lala`;//加 ` 模板字面量允许多行字符串
+        console.log(qwer);
+        let qweewq = `all ${qwe},${ewq}`;//模板字面量变量替换
+        console.log("模板字面量变量替换："+qweewq);
+        let p = 22.22;
+        let o = 11.11;
+        let u = `pxo:${(p*o).toFixed(5)}`;//()内是，四舍五入到小数点后几位,运算式需要括号
+        console.log("模板字面量:"+u);//模板字面量允许字符串中的表达式,用真实值自动替换表达式称为字符串插值。*/
+
+        /*var a = 100/"10";
+        console.log(typeof a,a,isNaN(a));//inNaN判断是否为number，任何数字与NaN运算都将是NaN
+        /!*a = 2;
+        while (a != Infinity){//Infinity为最大值，-Infinity为最小值，Infinity为number类型
+            a = a^2;
+        }
+        console.log();*!/
+        a =99;
+        console.log(a.toString(8));//toString转换进制类型，平常输入的值默认十进制
+        console.log(("toString="+123+"呀呀呀").toString());//toString是以字符串类型返回值
+        a = 1.543435464;
+        console.log("toExponential四舍五入计算值="+a.toExponential(3));//返回字符串值，它包含已被四舍五入并使用指数计数法的数字。小数点后的参数值
+        console.log("toFixed="+a.toFixed(10))//固定返回指定长度字符串,且会四舍五入
+        console.log("toPrecision="+a.toPrecision());//包含指定长度数字
+        console.log("valueOf"+a.valueOf());//返回number值，且可以运行表达式
+        a = "321";
+        console.log(Number(a),typeof Number(a));//将变量转换为数字,返回数字，由其参数转换而来
+        console.log(parseInt(a),typeof parseInt(a));//将变量转换为数字,解析其参数并返回整数。
+        console.log(parseFloat(a),typeof parseFloat(a));//将变量转换为数字,解析其参数并返回浮点数。
+        console.log(Number("1999-02-28"));
+        console.log(Number.MAX_VALUE);//js中数值的最大值
+        console.log(Number.MIN_VALUE);//最小值
+        console.log(1/0);//溢出时返回 POSITIVE_INFINITY,溢出时返回 NEGATIVE_INFINITY
+
+        //数组
+        var fruits = ["apple","banana","orange","mango","strawberry"];
+        var fruits2 ;
+        var fruits1 = fruits.length;//返回数组的长度
+        for (var i=0;i<fruits1;i++){
+          fruits2 += fruits[i];
+        }
+        console.log(fruits2);
+        fruits.push("watermelon");//添加新元素
+        fruits[fruits.length] = "tomato";
+        console.log(fruits);
+        var fruits3 =[];
+        fruits4 =[];
+        fruits3[0]="apple";
+        fruits3[1]="banana";
+        fruits3[2]="orange";
+        fruits3[3]="mango";
+        console.log("length:"+fruits3.length);
+        console.log(fruits3[2]);
+        console.log(fruits.join("、"));
+        console.log(fruits3.pop());//删除最后一个值
+        fruits3.push("mango");//push向末尾添加
+        console.log("向末尾添加后"+fruits3);
+        console.log(fruits3.push("patato"));//向末尾添加后，方法返回新数组的长度
+        console.log(fruits3.shift());//从第一个开始删除，且全部向前移位1，返回删除值
+        console.log(fruits3.unshift("apple"));//从对象第一个进行添加，返回新数组长度
+        fruits3[fruits3.length] = "kiwi";//从数组后添加一个字符串，并赋值
+        console.log(fruits3);
+        delete fruits3[5];
+        console.log(fruits3);//？？？？？？？？？？？？？？？？？？？？？
+        fruits3.splice(2,0,"oh","ye");//第一个参数（2）定义了应添加新元素的位置（拼接）、第二个参数（0）定义应删除多少元素、其余参数（“oh”，“ye”）定义要添加的新元素。返回删除的数值
+        console.log(fruits3);
+        console.log(fruits4.concat(fruits1,fruits2,fruits3));//方法不会更改现有数组。它总是返回一个新数组
+        console.log(fruits3,fruits3.slice(1,3));//开始参数选取元素，直到结束参数（不包括）为止
+        console.log(fruits3,fruits3.slice(2));//结束参数被省略，slice() 会切出数组的剩余部分。
+        console.log(fruits3,fruits3.toString());//以逗号分隔的字符串返回数组
+        console.log(fruits3.sort());//方法按字母顺序对数组进行排序
+        console.log(fruits3.reverse());//反转数组,降序对数组进行排序
+        var fruits5 = [1,34,6,124,75,33];
+        fruits5.sort(function (b,a){return b-a});//按升序对数组进行排序
+        console.log(fruits5);
+        fruits5.sort(function (a,b){return b-a});//降序对数组进行排序
+        console.log(fruits5);
+        fruits5.sort();//按字母顺序对数组进行排序,按位计算
+        console.log(fruits5);
+        fruits5.sort(function (a,b){return 0.5-Math.random()});//以随机顺序排序数组
+        console.log(fruits5);
+        fruits5.sort(function (a,b){return a-b});//排序后查询数组最高和最低位
+        console.log(fruits5);
+        console.log(fruits5[fruits5.length-1]);//含最高值
+        console.log(fruits5[0]);//含最低值
+        console.log(Math.max(fruits5));
+        var points = [1,234,5,12,43,67,95,149,173,24,72,54];
+        function myArrayMax(arr){
+          var len=arr.length;//排序
+          var max=-Infinity;
+          while (len--){
+            if (arr[len]>max){
+              max=arr[len];
+            }
+          }
+          return max;
+        }
+        console.log(myArrayMax(points));//计算最高值
+        function myArrayMin(arr){
+          var len=arr.length;//排序
+          var min=Infinity;
+          while (len--){
+            if (arr[len]<min){
+              min=arr[len];
+            }
+          }
+          return min;
+        }
+        console.log(myArrayMin(points));//计算最低值
+        /!*    var cars = [
+                {type: bmw,number: 5},
+                {type: audi,number: 8},
+                {type: porsche,number: 2},
+                {type: vw,number: 9},
+                {type: tesla,number: 3}
+            ];
+            cars1();
+            function mufunction(){
+                cars.sort(function (a,b){
+                    var x=a.type.toLowerCase();
+                    var y=b.type.toLowerCase();
+                    if (x>y){
+                        return -1;
+                    }
+                    if (x<=y){
+                        return 1;
+                    }
+                    return 0;
+                })
+                cars1();
+            }
+            function cars(){
+                document.innerHTML =
+                    cars[0].type + " " + cars[0].number + "<br>" +
+                    cars[1].type + " " + cars[1].number + "<br>" +
+                    cars[2].type + " " + cars[2].number;
+                )//排序对象数组？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
+            }*!/
+        var m ="";
+        fruits5.forEach(foreach);//为每个数组元素调用一次函数
+        function foreach(asd){
+          m = m + asd + "\n";
+        }
+        console.log(m);
+        var m1 = fruits5.map(n);//方法通过对每个数组元素执行函数来创建新数组
+        function n(m){
+          return m*2;
+        }
+        console.log(m1);
+        console.log(fruits5);
+        var m2 = fruits5.filter(v);//创建一个包含通过测试的数组元素的新数组
+        function v(n){
+          return n>30;
+        }
+        console.log(m2);
+        var m3 = fruits5.reduce(l,200);//确定数组中所有数字的总和,能够接受一个初始值
+        function l(n,m){
+          return n + m;
+        }
+        console.log(m3);
+        var m4 = fruits5.every(k);//检查所有数组值是否通过测试
+        function k(n){
+          return n<40;
+        }
+        console.log(m4);
+        var m5 = fruits5.some(j);//检查某些数组值是否通过了测试
+        function j(n){
+          return n>30;
+        }
+        console.log(m5);
+        var m6 = fruits5.indexOf(33,0);//在数组中搜索元素值并返回其位置,第一个项目的位置是0,可以选择从哪里开始搜索。负值将从结尾开始的给定位置开始，并搜索到结尾
+        console.log(m6);
+        var m7 = fruits5.find(h);//返回通过测试函数的第一个数组元素的值
+        function h(n){
+          return n>30;
+        }
+        console.log(m7);
+        var m8 = fruits5.findIndex(g);//返回通过测试函数的第一个数组元素的索引,从0开始
+        function g(n){
+          return n>30;
+        }
+        console.log(m8);
+        const fruits6 = ["ab","bc","cd","de"];
+        //fruits6 = ["ba","cb","dc","ed"];//用 const 声明的数组不能重新赋值
+        console.log(fruits6);
+        fruits6[0] = "ba";//可以更改常量数组的元素
+        fruits6.push("ef");//可以更改常量数组的元素
+        console.log(fruits6);*/
+
+        /*var day = new Date();//new Date(year, month, day, hours, minutes, seconds, milliseconds)
+        console.log(day);
+        day = new Date(1999,1,28,8,24,8,24);//JS从0到11计算月份。一月是 0。十二月是11
+        console.log(day);
+        day = new Date(2008);//只提供一个参数，则将其视为毫秒
+        console.log(day);
+        day = new Date("December 25, 2019 12:46:00");//从日期字符串创建一个新的日期对象
+        console.log(day);
+        day = new Date(0);//创建一个零时加毫秒的新日期对象.一天（24 小时）是 86 400 000 毫秒。
+        console.log(day,typeof day);
+        day = new Date();
+        console.log(day.toUTCString());//世界时间0时区
+        console.log(day.toDateString());
+        day = Date.parse("February 28,1999");//返回日期和1999年2月28日之间的毫秒数
+        console.log(day);
+        day = new Date();
+        console.log(day.getTime());//返回从1970年1月1日午夜那时起的毫秒数
+        console.log(day.getFullYear());//返回日期的完整年
+        console.log(day.getMonth()+1);//以数字（0-11）返回日期的月份
+        console.log(day.getDate());//以数字（1-31）返回日期的日
+        console.log(day.getHours());//以数字（0-23）返回日期的小时数
+        console.log(day.getMinutes());//以数字（0-59）返回日期的分钟数
+        console.log(day.getSeconds());//以数字（0-59）返回日期的秒数
+        console.log(day.getMilliseconds());//以数字（0-999）返回日期的毫秒数
+        console.log(day.getDay());//以数字（0-6）返回日期的星期名（weekday）
+        day.setFullYear(1999,2,28);//设置日期对象的年份,可以选择设置月和日
+        console.log(day);
+        day = new Date();//
+        day.setMonth(1);//设置日期对象的月份（0-11）
+        console.log(day);
+        day = new Date();
+        day.setDate(28);//设置日期对象的日（1-31）
+        console.log(day);
+        day = new Date();
+        day.setDate(day.getDate()+50);//也可用于将天数添加到日期
+        console.log(day);
+        day = new Date();
+        day.setHours(2);//设置日期对象的小时（0-23）
+        console.log(day);
+        day = new Date();
+        day.setMinutes(23);//设置日期对象的分钟（0-59）
+        console.log(day);
+        day = new Date();
+        var day1,day2;
+        day1 = new Date();
+        day1.setFullYear(2019,6,24);
+        if (day1<day){
+          day2 = "今天在2019.6.24之后";
+        }else {
+          day2 = "今天在2019.6.24之前";
+        }//比较日期
+        console.log(day2);*/
+
+        /*console.log(Math.PI);//数字Π圆周率
+        console.log(Math.round(6.6),Math.round(6.4));//返回值是 x 四舍五入为最接近的整数
+        console.log(Math.pow(2,3));//返回值是 x 的 y 次幂
+        console.log(Math.sqrt(66));// 返回 x 的平方根
+        console.log(Math.abs(-3453328));//返回 x 的绝对（正）值
+        console.log(Math.ceil(6.0232));//返回值是 x 上舍入最接近的整数
+        console.log(Math.floor(6.123456));//返回值是 x 下舍入最接近的整数
+        console.log(Math.sin(74*Math.PI/180));//正弦---以弧度计的角度 = (以度数计的角度) * PI / 180
+        console.log(Math.cos(74*Math.PI)/180)//余弦---以弧度计的角度 = (以度数计的角度) * PI / 180。
+        console.log(Math.min(0,-23,4353,545,3,43,-4634));
+        console.log(Math.max(0,-23,4353,545,3,43,-4634));//查找参数列表中的最低或最高值
+        console.log(Math.random());//返回介于 0（包括） 与 1（不包括） 之间的随机数
+        /!*
+            Math.E          // 返回欧拉指数（Euler's number）
+            Math.PI         // 返回圆周率（PI）
+            Math.SQRT2      // 返回 2 的平方根
+            Math.SQRT1_2    // 返回 1/2 的平方根
+            Math.LN2        // 返回 2 的自然对数
+            Math.LN10       // 返回 10 的自然对数
+            Math.LOG2E      // 返回以 2 为底的 e 的对数（约等于 1.414）
+            Math.LOG10E     // 返回以 10 为底的 e 的对数（约等于 0.434）
+         *!/
+        /!*
+            abs(x)	返回 x 的绝对值
+            acos(x)	返回 x 的反余弦值，以弧度计
+            asin(x)	返回 x 的反正弦值，以弧度计
+            atan(x)	以介于 -PI/2 与 PI/2 弧度之间的数值来返回 x 的反正切值。
+            atan2(y,x)	返回从 x 轴到点 (x,y) 的角度
+            ceil(x)	对 x 进行上舍入
+            cos(x)	返回 x 的余弦
+            exp(x)	返回 Ex 的值
+            floor(x)	对 x 进行下舍入
+            log(x)	返回 x 的自然对数（底为e）
+            max(x,y,z,...,n)	返回最高值
+            min(x,y,z,...,n)	返回最低值
+            pow(x,y)	返回 x 的 y 次幂
+            random()	返回 0 ~ 1 之间的随机数
+            round(x)	把 x 四舍五入为最接近的整数
+            sin(x)	返回 x（x 以角度计）的正弦
+            sqrt(x)	返回 x 的平方根
+            tan(x)	返回角的正切
+         *!/
+        console.log(Math.floor(Math.random()*101));
+        function a(min,max){
+          return Math.floor(Math.random()*(max-min))+min;
+        }
+        console.log("返回1 与20之间的随机数="+a(1,20));
+
+        console.log(10>9);//使用 Boolean() 函数来确定表达式（或变量）是否为真
+        console.log(Boolean(0),Boolean(-0),Boolean(""),Boolean( ),Boolean(null),Boolean(NaN));//所有不具有“真实”值的即为 False
+        /!*
+        运算符	描述                 比较	            返回
+        ==	    等于	                x == 8	            false
+                                    x == 5	            true
+                                    x == "5"	        true
+        ===	    值相等并且类型相等	    x === 5	            true
+                                    x === "5"	        false
+        !=	    不相等	            x != 8	            true
+        !==	    值不相等或类型不相等	x !== 5	            false
+                                    x !== "5"	        true
+                                    x !== 8	            true
+        >	    大于	                x > 8	            false
+        <	    小于	                x < 8	            true
+        >=	    大于或等于	        x >= 8	            false
+        <=	    小于或等于	        x <= 8	            true
+
+        &&	    与	                (x < 10 && y > 1)   true
+        ||	    或	                (x == 5 || y == 5)  false
+        !       非	                !(x == y)           true
+         *!/
+
+
+        const num = [12,43,6,72,41,11];
+        let x = "";
+        num.forEach(myfunction);//为每个数组元素调用一次函数（回调函数）
+        function myfunction(n){
+          x+=n+" ";
+        }
+        console.log(x);
+
+        var cars = ["BMW", "Volvo", "Saab", "Ford"];
+        var i = 0;
+        var text = "";
+
+        for (;cars[i];) {
+          text += cars[i] + "<br>";
+          i++;
+        }
+        var str1 = "visit MicroSoft,MicroSoft is good";
+        var st1 = str1.replace(/microsoft/i,"iOS");//使用字符串方法 replace() 处理字符串
+        console.log(st1);
+        var st2 = str1.replace(/MicroSoft/g,"iOS");//执行全局匹配（查找所有匹配而非在找到第一个匹配后停止）。大小写敏感
+        console.log(st2);
+        var st3 = str1.replace(/MicroSoft/m,"iOS");//执行多行匹配。
+        console.log(st3);
+        var st4 = /c/;
+        console.log(st4.test(str1));//通过模式来搜索字符串，然后根据结果返回 true 或 false
+        console.log(/M/.exec(str1));//通过指定的模式（pattern）搜索字符串，并返回已找到的文本
+
+        /!*
+            在方法中，this 指的是所有者对象。
+            单独的情况下，this 指的是全局对象。
+            在函数中，this 指的是全局对象。
+            在函数中，严格模式下，this 是 undefined。
+            在事件中，this 指的是接收事件的元素。
+         *!/*/
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

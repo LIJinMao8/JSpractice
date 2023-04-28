@@ -211,21 +211,45 @@
         }
 */
 
+/*
         //在0-99的数中，给出数组1有40位，数组2有40位，列出两数组都不包含的数。
-        var shuzu1 = [0,4,6,7,8,9,11,22,27,30,31,32,33,38,41,44,55,56,57,58,59,60,63,65,66,69,70,72,74,77,79,80,81,82,84,85,89,91,93,97];
-        var shuzu2 = [1,2,4,5,6,7,8,9,10,11,15,18,19,21,24,26,27,28,30,33,34,37,38,39,40,44,46,51,53,55,58,60,61,66,68,81,85,90,95,99];
-        console.log(shuzu1.length,shuzu2.length);
-        var shuzi3 =[];
-        var x;//shuzu1的第几位
-        var y;//shuzi2的第几位
-        for (x = 0;x <= 99;x++){
-            for (y=0;y>=x,y<=99;y++){
-                shuzu1[x]==shuzu2[y];
+        var sz1 = [1,2,4,6,8];
+        var sz2 = [1,2,5,8,9];
 
+        //对比两个数组都存在的值
+        let sz1Obj = {}
+        for (i=0; i< sz1.length; i++){
+            sz1Obj[sz1[i]]=true
+        }
+        console.log(sz1Obj);
+        for (let i = 0; i < sz2.length; i++) {
+            let sz2Item = sz2[i]
+            console.log(sz2Item);
+            let exists = sz1Obj[sz2Item]
+            if (exists) {
+                console.log(i);
             }
         }
 
-        console.log(shuzi3,shuzi3.length);
+        //获取两个数组都不存在的值
+        let szObj = {}
+        let szArr = sz1.concat(sz2)
+        //for of 遍历数组得到item
+        for (let i of szArr) {
+            szObj[i] = true
+        }
+
+        //for in 遍历对象得到key
+        for (const szArrKey in szObj) {
+            console.log("=========",szArrKey);
+        }
+
+        for (let i = 1; i <= 10; i++) {
+            if (!szObj[i]){
+                console.log(i);
+            }
+        }
+*/
 
 
 
