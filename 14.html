@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+      var day = new Date();//new Date(year, month, day, hours, minutes, seconds, milliseconds)
+      console.log(day);
+      day = new Date(1999,1,28,8,24,8,24);//JS从0到11计算月份。一月是 0。十二月是11
+      console.log(day);
+      day = new Date(2008);//只提供一个参数，则将其视为毫秒
+      console.log(day);
+      day = new Date("December 25, 2019 12:46:00");//从日期字符串创建一个新的日期对象
+      console.log(day);
+      day = new Date(0);//创建一个零时加毫秒的新日期对象.一天（24 小时）是 86 400 000 毫秒。
+      console.log(day,typeof day);
+      day = new Date();
+      console.log(day.toUTCString());//世界时间0时区
+      console.log(day.toDateString());
+      day = Date.parse("February 28,1999");//返回日期和1999年2月28日之间的毫秒数
+      console.log(day);
+      day = new Date();
+      console.log(day.getTime());//返回从1970年1月1日午夜那时起的毫秒数
+      console.log(day.getFullYear());//返回日期的完整年
+      console.log(day.getMonth()+1);//以数字（0-11）返回日期的月份
+      console.log(day.getDate());//以数字（1-31）返回日期的日
+      console.log(day.getHours());//以数字（0-23）返回日期的小时数
+      console.log(day.getMinutes());//以数字（0-59）返回日期的分钟数
+      console.log(day.getSeconds());//以数字（0-59）返回日期的秒数
+      console.log(day.getMilliseconds());//以数字（0-999）返回日期的毫秒数
+      console.log(day.getDay());//以数字（0-6）返回日期的星期名（weekday）
+      day.setFullYear(1999,2,28);//设置日期对象的年份,可以选择设置月和日
+      console.log(day);
+      day = new Date();//
+      day.setMonth(1);//设置日期对象的月份（0-11）
+      console.log(day);
+      day = new Date();
+      day.setDate(28);//设置日期对象的日（1-31）
+      console.log(day);
+      day = new Date();
+      day.setDate(day.getDate()+50);//也可用于将天数添加到日期
+      console.log(day);
+      day = new Date();
+      day.setHours(2);//设置日期对象的小时（0-23）
+      console.log(day);
+      day = new Date();
+      day.setMinutes(23);//设置日期对象的分钟（0-59）
+      console.log(day);
+      day = new Date();
+      var day1,day2;
+      day1 = new Date();
+      day1.setFullYear(2019,6,24);
+      if (day1<day){
+          day2 = "今天在2019.6.24之后";
+      }else {
+          day2 = "今天在2019.6.24之前";
+      }//比较日期
+      console.log(day2);
+
+
+
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
