@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        p{
+            text-align: center;/*段落*/
+        }
+        #part1{/*类名不能以数字开头！*/
+            text-align: left;
+            color: cornflowerblue;
+        }
+        .cnter{
+        color: red;
+        }
+        *{/*影响所有的html元素*/
+            text-align: left;
+            color: blue;
+        }
+        h1,h2,h3{
+            text-align: center;
+            color: red;
+        }
+        body{/*页面背景*/
+            background-image: url("/image/2.gif");
+            background-position: right top;
+            background-repeat: no-repeat;
+            background-attachment: fixed;/*fixed滚动scroll固定*/
+        }
+        div.first{
+            color: white;
+            opacity: 0.3;
+        }
+        div.second{
+            color: whitesmoke;
+            background: rgba(100,200,100,0.7);
+        }
+        p.yuanshen{
+            background-image: url("/image/1.png");/*相对于该文档的地址，不是电脑位置的地址*/
+        }
+        p.gitpiicture{
+            background-image: url("/image/2.gif");
+            background-repeat: repeat-x;/*如果上面的图像仅在水平方向重复，则背景看起来会更好.no-repeat只显示一次*/
+            color: red;
+            height: 500px;
+            text-align: left;
+        }
+        p.gitpiicture1{
+            background-image: url("/image/2.gif");
+            background-repeat: no-repeat;
+            background-position: right top;
+            text-align: center;
+            color: red;
+            height: 500px;
+        }
+        p.gitpiicture2{
+            background: white url("/image/2.gif") no-repeat left top;/*属性值的顺序为：color；image；repeat；attachment；position；*/
+            height: 500px;
+        }
+        /*
+        background	在一条声明中设置所有背景属性的简写属性。
+        background-attachment	设置背景图像是固定的还是与页面的其余部分一起滚动。
+        background-clip	规定背景的绘制区域。
+        background-color	设置元素的背景色。
+        background-image	设置元素的背景图像。
+        background-origin	规定在何处放置背景图像。
+        background-position	设置背景图像的开始位置。
+        background-repeat	设置背景图像是否及如何重复。
+        background-size	规定背景图像的尺寸。
+        */
+    </style>
+    <link rel="stylesheet" type="text/css" href="mystyle.css"><!--头部包含引用文件-->
+</head>
+<body>
+        <p>第一段</p>
+        <p id="part1">第二段</p>
+        <p class="cnter">.cnter---CSS类选择器</p>
+        <p style="color: aqua;text-align: left">行内css</p>
+        <p style="border: red solid 3px;">border边框大小及颜色</p>
+        <p style="color: rgb(255,99,71);">rgn(255,99,71)颜色标注</p>
+        <p style="color: #ff6347;">#ff6347颜色标注法</p>
+        <p style="color: hsl(9,50%,64%);">hsl(9,50%,64%)颜色标注</p>
+        <p style="color: rgba(100,300,250,0.5);">rgba(100,300,250,0.5);颜色标注</p><!--alpha 参数是介于 0.0（完全透明）和 1.0（完全不透明）之间的数字-->
+        <p style="color: #ff17f3;">HEX颜色标注#ff17f3..rr（红色）、gg（绿色）和 bb（蓝色）颜色标注</p>
+        <p style="color: hsl(100,70%,90%);">HSL值，（色相，饱和度-颜色的强度，亮度-要赋予颜色多少光）</p>
+        <p style="color: hsla(100,70%,90%,0.7);">HSLA 颜色值是带有 Alpha 通道的 HSL 颜色值的扩展 - 它指定了颜色的不透明度</p><!--alpha 参数是介于 0.0（完全透明）和 1.0（完全不透明）之间的数字-->
+        <div class="first">opacity 属性指定元素的不透明度/透明度。取值范围为 0.0 - 1.0。值越低，越透明</div>
+        <div class="second">RGBA 颜色值指定为：rgba(red, green, blue, alpha)。alpha 参数是介于 0.0（完全透明）和 1.0（完全不透明）之间的数字。</div>
+        <p class="yuanshen">background-image 属性指定用作元素背景的图像。</p>
+        <p class="gitpiicture">仅在水平方向重复background-repeat: repeat-x;</p>
+        <p class="gitpiicture1">no-repeat指定只显示一次背景图像,background-position指定图像位置</p>
+        <p class="gitpiicture2">在使用简写属性时，属性值的顺序为：background-color;background-image;background-repeat;background-attachment;background-position</p>
+
+</body>
+</html>
