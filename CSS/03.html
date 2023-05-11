@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+    div.a1{text-align: justify;}/*将拉伸每一行，以使每一行具有相等的宽度，并且左右边距是直的*/
+    p.p1{direction: rtl;unicode-bidi: bidi-override}/*direction改变文本方向，unicode-bidi改变文本排列方向*/
+    img.top {vertical-align: top;}/*上对齐*/
+    img.middle {vertical-align: middle;}/*居中对齐*/
+    img.bottom {vertical-align: bottom;}/*下对齐*/
+    p.p2{text-decoration: none;}/*设置或删除文本装饰*/
+    p.p3{text-decoration: overline;}/*上划线*/
+    p.p4{text-decoration: line-through;}/*中划线*/
+    p.p5{text-decoration: underline;}/*下划线*/
+    p.uppercase{text-transform: uppercase;}/*全大写*/
+    p.lowercase{text-transform: lowercase;}/*全小写*/
+    p.capitalize{text-transform: capitalize;}/*首字母大写*/
+    p.indent{tab-index: 50px;}/*指定文本第一行的缩进*/
+    p.letterspacing{letter-spacing: 8px;}/*文本间距*/
+    p.lineheight{line-height: 3;}/*文本行间距*/
+    p.wordspacing{word-spacing: 10px;}/*文本字间距，两个单词之间的间距*/
+    p.whitespacing{white-space: nowrap;}/*指定元素内部空白的处理方式，如没有则自动提行*/
+    p.shadow{text-shadow: 2px 3px 5px yellow;}/*水平阴影、垂直阴影、模糊效果、颜色*/
+/*    color	        设置文本颜色。
+    direction	    指定文本的方向 / 书写方向。
+    letter-spacing	设置字符间距。
+    line-height	    设置行高。
+    text-align	    指定文本的水平对齐方式。
+    text-decoration	指定添加到文本的装饰效果。
+    text-indent	    指定文本块中首行的缩进。
+    text-shadow	    指定添加到文本的阴影效果。
+    text-transform	控制文本的大小写。
+    text-overflow	指定应如何向用户示意未显示的溢出内容。
+    unicode-bidi	与 direction 属性一起使用，设置或返回是否应重写文本来支持同一文档中的多种语言。
+    vertical-align	指定文本的垂直对齐方式。
+    white-space	    指定如何处理元素内的空白。
+    word-spacing	设置单词间距。*/
+    p.fontfamily{font-family: cursive,sans-serif,monospace,"Times New Roman",Serif;}
+    p.fontstyle{font-style: italic;}/*斜体italic，倾斜oblique，正常normal*/
+    p.fontweight{font-weight: bold;}/*lighter细的,bold粗的*/
+    p.fontvariant{font-variant: small-caps;}/*在 small-caps 字体中，所有小写字母都将转换为大写字母。但是，转换后的大写字母的字体大小小于文本中原始大写字母的字体大小。*/
+    p.fontsize{font-size: 2em;}/*1em 等于当前字体大小。浏览器中的默认文本大小为 16px。因此，默认大小 1em 为 16px。*/
+    p.fontall{font: italic normal lighter 2em cursive;}/*font-size 和 font-family 的值是必需的。如果缺少其他值之一，则会使用其默认值。*/
+/*    font	        简写属性。在一条声明中设置所有字体属性。
+    font-family	    规定文本的字体系列（字体族）。
+    font-size	    规定文本的字体大小。
+    font-style	    规定文本的字体样式。
+    font-variant	规定是否以小型大写字母的字体显示文本。
+    font-weight 	规定字体的粗细。*/
+    a:link{color: red;text-decoration: none;}/* 未被访问的链接 */
+    a:visited{color: green;text-decoration: none;}/* 已被访问的链接 */
+    a:hover{color: pink;text-decoration: underline;background-color: lightskyblue;}/* 将鼠标悬停在链接上 */
+    a:active{color: blue;text-decoration: line-through;}/* 被选择的链接 */
+    /*无序列表（<ul>）- 列表项用的是项目符号标记
+    有序列表（<ol>）- 列表项用的是数字或字母标记*/
+    ul.circle{list-style-type: circle;}/*list-style-type 属性指定列表项标记的类型。*/
+    ul.square{list-style-type: square;}
+    ol.upperroman{list-style-type: upper-roman;}
+    ol.loweralpha{list-style-type: lower-alpha;}
+    ul.position1{list-style-position: inside;}/*"list-style-position: inside;" 表示项目符号将在列表项内。由于它是列表项的一部分，因此它将成为文本的一部分，并在开头推开文本：*/
+    ul.position2{list-style-position: outside;}/*list-style-position 属性指定列表项标记（项目符号）的位置。"list-style-position: outside;" 表示项目符号点将在列表项之外。列表项每行的开头将垂直对齐。这是默认的*/
+    ul.a1{list-style-type: none;margin: 0;padding: 0;}/*list-style-type:none 属性也可以用于删除标记/项目符号。请注意，列表还拥有默认的外边距和内边距。要删除此内容，请在 <ul> 或 <ol> 中添加 margin:0 和 padding:0 */
+/*    list-style	    简写属性。在一条声明中设置列表的所有属性。
+    list-style-image	指定图像作为列表项标记。
+    list-style-position	规定列表项标记（项目符号）的位置。
+    list-style-type	    规定列表项标记的类型。*/
+    table,th,td.a1{border: 1px solid black;width: 200px;}
+    table.a2{border: 1px dotted blueviolet;}
+    tr:hover{background-color: skyblue;}
+    tr:nth-child(even){background-color: beige;}/*为了实现斑马纹表格效果，请使用 nth-child() 选择器，并为所有偶数（或奇数）表行添加 background-color*/
+    /*border	    简写属性。在一条声明中设置所有边框属性。
+    border-collapse	规定是否应折叠表格边框。
+    border-spacing	规定相邻单元格之间的边框的距离。
+    caption-side	规定表格标题的位置。
+    empty-cells	    规定是否在表格中的空白单元格上显示边框和背景。
+    table-layout	设置用于表格的布局算法。*/
+
+    </style>
+</head>
+<body>
+    <div class="a1">text-align: justify</div>
+    <p class="p1">direction: rtl;unicode-bidi: bidi-override</p>
+    <p>一幅 <img class="top" src="/image/cssboxmodel.png" width="30%" height="30%"> 上对齐的图像。vertical-align: top</p><br>
+    <p>一幅 <img class="middle" src="/image/cssboxmodel.png" width="30%" height="30%"> 居中对齐的图像。vertical-align: middle</p><br>
+    <p>一幅 <img class="bottom" src="/image/cssboxmodel.png" width="30%" height="30%"> 下对齐的图像。vertical-align: bottom</p>
+    <p class="p2">text-decoration: none; 通常用于从链接上删除下划线</p>
+    <p class="p3">text-decoration: none; 通常用于从链接上删除下划线</p>
+    <p class="p4">text-decoration: none; 通常用于从链接上删除下划线</p>
+    <p class="p5">text-decoration: none; 通常用于从链接上删除下划线</p>
+    <p class="uppercase">uppercase全大写</p>
+    <p class="lowercase">lowercase全小写</p>
+    <p class="capitalize">capitalize首字母大写</p>
+    <p class="indent">指定文本第一行的缩进。</p>
+    <p class="letterspacing">文本间距letter-spacing</p>
+    <p class="lineheight">文本行间距 line height<br/>文本行间距<br/></p>
+    <p class="wordspacing">文本字间距 word spacing</p>
+    <p class="whitespacing">
+        指定元素内部空白的处理方式...
+        指定元素内部空白的处理方式...
+        指定元素内部空白的处理方式...
+        指定元素内部空白的处理方式...
+        指定元素内部空白的处理方式...
+        指定元素内部空白的处理方式...</p><!--如没有则自动提行-->
+    <p class="shadow">文字阴影效果</p>
+    <p class="fontfamily">font-family 属性应包含多个字体名称作为“后备”系统，以确保浏览器/操作系统之间的最大兼容性。请以您需要的字体开始，并以通用系列结束（如果没有其他可用字体，则让浏览器选择通用系列中的相似字体）。字体名称应以逗号分隔。</p>
+    <p class="fontstyle">italic - 文本以斜体显示</p>
+    <p class="fontweight">指定字体的粗细，bold粗的，lighter细的</p>
+    <p class="fontvariant">font-variant 属性指定是否以 small-caps 字体（小型大写字母）显示文本。</p>
+    <p class="fontsize">2em 等于当前字体2倍大小。浏览器中的默认文本大小为 16px。因此，默认大小 1em 为 16px。可以使用这个公式从像素到 em 来计算大小：pixels/16=em。</p>
+    <p style="font-size: 1vw;">视口是浏览器窗口的大小。 1vw = 视口宽度的 1％。如果视口为 50 厘米宽，则 1vw 为 0.5 厘米。</p>
+    <p class="fontall">font 属性是以下属性的简写属性：font-style；font-variant；font-weight；font-size/line-height；font-family</p>
+    <p><b><a href="02.html" target="_blank">跳转到css02页面</a>在 CSS 定义中，a:hover 必须位于 a:link 和 a:visited 之后才能生效。在 CSS 定义中，a:active 必须位于 a:hover 之后才能生效。</b></p>
+    <p>无序列表实例：</p>
+    <ul class="circle"><li>Coffee</li><li>Tea</li><li>Coca Cola</li></ul>
+    <ul class="square"><li>Coffee</li><li>Tea</li><li>Coca Cola</li></ul>
+    <p>有序列表实例：</p>
+    <ol class="upperroman"><li>Coffee</li><li>Tea</li><li>Coca Cola</li></ol>
+    <ol class="loweralpha"><li>Coffee</li><li>Tea</li><li>Coca Cola</li></ol>
+    <ul class="position1">"list-style-position:outside;"属性指定列表项标记（项目符号）的位置</ul>
+    <ul class="position2">"list-style-position: inside;"表示项目符号将在列表项内</ul>
+    <ul class="a1"><li>Coffee</li><li>Tea</li><li>Coca Cola</li></ul>
+    <table class="a1"><tr><th>firstname</th><th>lastname</th></tr><tr><th>li</th><th>jinmao</th></tr><tr><th>li</th><th>tong</th></tr></table><!--请注意上面的表格有双边框。这是因为表格和 th、td 元素都有单独的边框-->
+    <table class="a2"><tr><th>firstname</th><th>lastname</th></tr><tr><th>li</th><th>jinmao</th></tr><tr><th>li</th><th>tong</th></tr></table>
+    <div style="overflow-x: auto"><table><!--在 <table> 元素周围添加带有 overflow-x:auto 的容器元素（例如 <div>），以实现响应式效果-->
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Points</th>
+            <th>Points</th>
+            <th>Points</th>
+            <th>Points</th>
+            <th>Points</th>
+            <th>Points</th>
+            <th>Points</th>
+            <th>Points</th>
+            <th>Points</th>
+            <th>Points</th>
+        </tr>
+        <tr>
+            <td>Bill</td>
+            <td>Gates</td>
+            <td>50</td>
+            <td>50</td>
+            <td>50</td>
+            <td>50</td>
+            <td>50</td>
+            <td>50</td>
+            <td>50</td>
+            <td>50</td>
+            <td>50</td>
+            <td>50</td>
+        </tr>
+        <tr>
+            <td>Steve</td>
+            <td>Jobs</td>
+            <td>94</td>
+            <td>94</td>
+            <td>94</td>
+            <td>94</td>
+            <td>94</td>
+            <td>94</td>
+            <td>94</td>
+            <td>94</td>
+            <td>94</td>
+            <td>94</td>
+        </tr>
+        <tr>
+            <td>Elon</td>
+            <td>Musk</td>
+            <td>67</td>
+            <td>67</td>
+            <td>67</td>
+            <td>67</td>
+            <td>67</td>
+            <td>67</td>
+            <td>67</td>
+            <td>67</td>
+            <td>67</td>
+            <td>67</td>
+        </tr>
+    </table></div>
+
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        p.dotted{border-style: dotted;border-width: 5px;}
+        p.dashed{border-style: dashed;border-width: medium;}
+        p.solid{border-style: solid;border-width: thick;}
+        p.double{border-style: double;border-width: 10px 20px;}/*两个就为（上下，其他边），四个就为（上右下左）*/
+        p.groove{border-style: groove;border-color: red;}
+        p.ridge{border-style: ridge;border-color: red deepskyblue yellow blue;}
+        p.inset{border-style: inset;}
+        p.outset{border-style: outset;}
+        p.none{border-style: none;}
+        p.hidden{border-style: hidden;}
+        p.mix{border-style: dotted dashed solid double;}
+        p.otherborder{border-top-style: dotted;border-left-style: hidden;border-right-style: ridge;border-bottom-style: outset;}
+        p.otherborder1{border-style: dotted hidden groove solid;border-color: red}
+        p.shorthand{border-left: 5px solid red;background-color: lightgrey;}
+        p.radius{border-radius: 5px;border: 2px solid red;}
+/*      border	            简写属性，在一条声明中设置所有边框属性。
+        border-color	    简写属性，设置四条边框的颜色。
+        border-radius	    简写属性，可设置圆角的所有四个 border-*-radius 属性。
+        border-style	    简写属性，设置四条边框的样式。
+        border-width	    简写属性，设置四条边框的宽度。
+        border-bottom	    简写属性，在一条声明中设置所有下边框属性。
+        border-bottom-color	设置下边框的颜色。
+        border-bottom-style	设置下边框的样式。
+        border-bottom-width	设置下边框的宽度。
+        border-left	        简写属性，在一条声明中设置所有左边框属性。
+        border-left-color	设置左边框的颜色。
+        border-left-style	设置左边框的样式。
+        border-left-width	设置左边框的宽度。
+        border-right	    简写属性，在一条声明中设置所有右边框属性。
+        border-right-color	设置右边框的颜色。
+        border-right-style	设置右边框的样式。
+        border-right-width	设置右边框的宽度。
+        border-top	        简写属性，在一条声明中设置所有上边框属性。
+        border-top-color	设置上边框的颜色。
+        border-top-style	设置上边框的样式。
+        border-top-width	设置上边框的宽度。
+        */
+        p.margin{border: 5px dotted red;margin: 6px 7px 8px 9px;}/*外边距允许负值*/
+        p.margin1{width: 500px;margin: auto;border: 5px solid skyblue;}
+/*      margin	        用于在一条声明中设置外边距属性的简写属性。
+        margin-bottom	设置元素的下外边距。
+        margin-left	    设置元素的左外边距。
+        margin-right	设置元素的右外边距。
+        margin-top	    设置元素的上外边距。
+        */
+        p.padding{padding: 50px 40px 30px 20px;border: 10px dotted deepskyblue;}
+/*      padding	用于在一条声明中设置所有内边距属性的简写属性。
+        padding-bottom	设置元素的下内边距。
+        padding-left	设置元素的左内边距。
+        padding-right	设置元素的右内边距。
+        padding-top	设置元素的上内边距。*/
+        div.a1{height: 100px;width: 50%;background-color: skyblue;}
+        div.a2{max-width: 500px;max-height: 200px;background-color: cadetblue;}
+        /*    height	设置元素的高度。
+            max-height	设置元素的最大高度。
+            max-width	设置元素的最大宽度。
+            min-height	设置元素的最小高度。
+            min-width	设置元素的最小宽度。
+            width	    设置元素的宽度。*/
+        div.boxmodel{width: 320px;padding: 10px;border: 5px solid crimson;margin: 50px 0;}
+/*      元素的总宽度应该这样计算：
+        元素总宽度 = 宽度 + 左内边距 + 右内边距 + 左边框 + 右边框 + 左外边距 + 右外边距
+        元素的总高度应该这样计算：
+        元素总高度 = 高度 + 上内边距 + 下内边距 + 上边框 + 下边框 + 上外边距 + 下外边距*/
+        p.dotted1 {outline-style: dotted;}
+        p.dashed1 {outline-style: dashed;}
+        p.solid1 {outline-style: solid;}
+        p.double1 {outline-style: double;}
+        p.groove1 {outline-style: groove;}
+        p.ridge1 {outline-style: ridge;}
+        p.inset1 {outline-style: inset;}
+        p.outset1 {outline-style: outset;}/*thin细的 medium中等的 thick粗的*/
+        /*轮廓与边框不同之处在于：轮廓是在元素边框之外绘制的，并且可能与其他内容重叠。同样，轮廓也不是元素尺寸的一部分；元素的总宽度和高度不受轮廓线宽度的影响。*/
+        p.colorinvert{border: 1px solid red;outline-style: dotted;outline-color: invert;}
+        p.outline{outline: 5px dotted yellow;}/*width  style(必需)  color  */
+        p.outlineoffset{margin: 50px;border: 5px dotted red;outline: 1px solid yellow;outline-offset: 25px;}
+/*        outline	    简写属性，在一条声明中设置 outline-width、outline-style 以及 outline-color。
+        outline-color	设置轮廓的颜色。
+        outline-offset	指定轮廓与元素的边缘或边框之间的空间。
+        outline-style	设置轮廓的样式。
+        outline-width	设置轮廓的宽度。*/
+
+    </style>
+</head>
+<body>
+    <p class="dotted">点状边框</p>
+    <p class="dashed">虚线边框</p>
+    <p class="solid">实线边框</p>
+    <p class="double">双线边框</p>
+    <p class="groove">凹槽边框</p>
+    <p class="ridge">垄状边框</p>
+    <p class="inset">3D inset边框</p>
+    <p class="outset">3D outset边框</p>
+    <p class="none">无边框</p>
+    <p class="hidden">隐藏边框</p>
+    <p class="mix">混合边框</p>
+    <p class="otherborder">单独边框</p>
+    <p class="otherborder1">单独边框,上-右-下-左,上-右左-下</p>
+    <p class="shorthand">边框属性简写</p>
+    <p class="radius">圆角边框</p>
+    <p class="margin">外边距</p>
+    <p class="margin1">自动边距设置</p>
+    <p class="padding">内边距</p>
+    <div class="a1">此元素的高度为 100 像素，宽度为 50％</div><br/>
+    <div class="a2">此元素的最大高度为 200 像素，最大宽度为 500 像素。</div>
+    <div class="boxmodel">框模型</div>
+    <p class="dotted1">点状轮廓</p>
+    <p class="dashed1">虚线轮廓</p>
+    <p class="solid1">实线轮廓</p>
+    <p class="double1">双线轮廓</p>
+    <p class="groove1">凹槽轮廓。效果取决于 outline-color 值。</p>
+    <p class="ridge1">凸脊轮廓。效果取决于 outline-color 值。</p>
+    <p class="inset1">凹边轮廓。效果取决于 outline-color 值。</p>
+    <p class="outset1">凸边轮廓。效果取决于 outline-color 值。</p>
+    <p class="colorinvert">outline-color: invert，执行了颜色反转。这样可以确保无论颜色背景如何，轮廓都是可见的</p>
+    <p class="outline">outline简写</p>
+    <p class="outlineoffset">此段落的边框外有 25px 的轮廓。</p>
+
+
+</body>
+</html>
